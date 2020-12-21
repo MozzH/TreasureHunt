@@ -4,3 +4,44 @@ body
     font-family: "Lato", sans-serif;
     margin: 0;
 }
+
+.button
+{
+    background-color: #ff9900;
+    border: none;
+    color: #000000;
+    font-size: 15px;
+    /*
+    margin-left: auto;
+    margin-right: auto;
+    */
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+    
+}
+
+.button:hover
+{
+    background-color: #cccccc;
+}
+
+.content-black
+{
+    background-color: #000000;
+    color: #cccccc;  
+}
+
+.content-center
+{
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+}
+
+.justify
+{
+    text-align: justify;
+}
