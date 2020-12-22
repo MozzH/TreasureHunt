@@ -19,7 +19,6 @@ body
     padding-left: 10px;
     padding-right: 10px;
     text-align: center;
-    
 }
 
 .button:hover
@@ -38,6 +37,36 @@ body
     padding: 10px;
     margin-left: auto;
     margin-right: auto;
+    width: 75%;
+}
+
+.footer
+{
+    background-color: #a6a6a6;
+    border-top: solid #4d4d4d;
+    color: #4d4d4d;
+    padding-bottom: 2%;
+    padding-top: 5px;
+}
+
+/*DO NOT FORGET TO REMOVE BACKGROUND COLOR*/
+.footer1
+{
+    background-color: red;
+    font-size: 13px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 5px;
+    width: 75%;
+}
+
+.footer2
+{
+    background-color: green;
+    font-size: 13px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 5px;
     width: 75%;
 }
 
