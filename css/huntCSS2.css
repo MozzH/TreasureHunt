@@ -109,6 +109,34 @@ button
     width: 33%;
 }
 
+.register-form
+{
+    background-color: #263d5c;
+    border: 2px solid #000000;
+    border-radius: 7px;
+    margin: 0 auto;
+    padding-bottom: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 20px;
+    width: 70%;
+}
+
+.register-button
+{
+    margin-top: 5px;
+    width: 100%;
+}
+
+.register-input
+{
+    border: 2px solid #263d5c;
+    border-radius: 5px;
+    margin-bottom: 3px;
+    margin-top: 3px;
+    width: 97%;
+}
+
 .section
 {
     margin-bottom: 7px;
