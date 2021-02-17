@@ -25,6 +25,19 @@ button
     width: 25%
 }
 
+.button-blue
+{
+    background-color:#263d5c;
+    border: 2px solid #000000;
+    border-radius: 5px;
+    color: #f2f2f2;
+    margin-bottom: 7px;
+    margin-top: 4px;
+    padding-bottom: 7px;
+    padding-top: 7px;
+    text-align: center;
+}
+
 .content
 {
     margin-left: auto;
@@ -35,7 +48,10 @@ button
 
 .content-center
 {
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
+    width: 75%;
 }
 
 .footer-bottom
@@ -76,25 +92,6 @@ button
 .headline
 {
     text-align: center;
-}
-
-.hunt-choice
-{
-    background-color:#263d5c;
-    border: 2px solid #000000;
-    border-radius: 5px;
-    color: #f2f2f2;
-    margin-bottom: 7px;
-    margin-top: 4px;
-    padding-bottom: 7px;
-    padding-top: 7px;
-}
-
-.hunt-list
-{
-    align-content: center;
-    text-align: center;
-    text-decoration: none;
 }
 
 .navbar-button
@@ -139,8 +136,22 @@ button
 }
 
 .section
+{   
+    padding-bottom: 10px;
+    padding-top: 5px;
+}
+
+.section-dark
 {
-    margin-bottom: 7px;
+    background-color: #263d5c;
+    color: #f2f2f2;
+    padding-bottom: 10px;
+    padding-top: 5px;
+}
+
+.twitter-timeline
+{
+    width: 75%;
 }
 
 #navbar
