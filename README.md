@@ -1,21 +1,21 @@
 # CO1111_assignment
 # 20th Of January, 2021
 
-¦ Meeting 20th January 2021
+**¦ Meeting 20th January 2021
 ¦ Time: 5:00 PM EET
 ¦ Location: Online; Microsoft Teams
 ¦ Agenda:
 ¦ Participants:  Mohammed Husham Dhahir Al-ghalibi,  Lefteris Tziambouris, Robin Kaya Schulz
-¦ Documents:"treasure_hunt_web_app.pdf"
+¦ Documents:"treasure_hunt_web_app.pdf"**
 
-⌠ Expectations ⌡
+⌠ **Expectations** ⌡
 • Clear up structure 
 • Design of index
 • Team section on index
 • scope of project (basic info)
 • Marketing/advertisement/twitter
 
-⌠ Outcomes ⌡
+⌠ **Outcomes** ⌡
 ► Design of index ◄
 ○ complete rework of existing structural template
 ○ color choice: open- no tiring colours (e.g. bright white makes users eyes more tired)
@@ -30,7 +30,7 @@
 ○ twitter account
 ○ implemented into index page
 
-⌠ Future meetings ⌡
+⌠ **Future meetings** ⌡
 • weekly on Wednesdays
 • report of progress
 • next meeting: 27th January, 5:00 PM EET
