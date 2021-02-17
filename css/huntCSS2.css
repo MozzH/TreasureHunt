@@ -1,14 +1,13 @@
 a
 {
-    color: #4c4f4c;
+    color: #263d5c;
     text-decoration: none;
-
 }
 
 body
 {
     background-color: #f2f2f2;
-    color: #4c4f57;
+    color: #263d5c;
 	font-family: 'Poppins', sans-serif;
     font-kerning: none;
     margin: 0px;
@@ -17,7 +16,7 @@ body
 
 button
 {
-    border: 2px solid #000000;
+    border: 2px solid #263d5c;
     border-radius: 5px;
     padding-bottom: 5px;
     padding-left: 8px;
@@ -34,9 +33,14 @@ button
     width: 75%;
 }
 
+.content-center
+{
+    text-align: center;
+}
+
 .footer-bottom
 {
-    background-color: #4c4f4c;
+    background-color: #263d5c;
     color: #f2f2f2;
     padding: 10px;
 }
@@ -44,6 +48,7 @@ button
 .footer-top
 {
     background-color: #bfbfbf;
+    color: #4c4f4c;
     display: grid;
     font-size: 12px;
     grid-gap: 20px;
@@ -61,10 +66,35 @@ button
     text-align: right;
 }
 
+.glue-bottom
+{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
 
 .headline
 {
     text-align: center;
+}
+
+.hunt-choice
+{
+    background-color:#263d5c;
+    border: 2px solid #000000;
+    border-radius: 5px;
+    color: #f2f2f2;
+    margin-bottom: 7px;
+    margin-top: 4px;
+    padding-bottom: 7px;
+    padding-top: 7px;
+}
+
+.hunt-list
+{
+    align-content: center;
+    text-align: center;
+    text-decoration: none;
 }
 
 .navbar-button
@@ -86,7 +116,7 @@ button
 
 #navbar
 {
-    border-bottom: 2px solid #4c4f4c;
+    border-bottom: 2px solid #263d5c;
     display: flex;
     justify-content: space-between;
     padding-left: 10px;
