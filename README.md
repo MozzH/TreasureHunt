@@ -1,7 +1,7 @@
 # CO1111_assignment
 # 20th Of January, 2021
 
-**¦ Meeting 20th January 2021
+**¦ Meeting 20th January 2021 <br>
 ¦ Time: 5:00 PM EET
 ¦ Location: Online; Microsoft Teams
 ¦ Agenda:
