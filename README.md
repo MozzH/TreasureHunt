@@ -1,5 +1,5 @@
 # Project LRM
-## Treasure Hunt application for UCLan Cyprus CO1111
+## a Treasure Hunt application for CO1111 at UCLan Cyprus
 
 Team project by: Lefteris Tziambouris, Robin K. Schulz and Mohammed Al-Ghalibi 
 
