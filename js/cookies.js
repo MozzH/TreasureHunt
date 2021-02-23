@@ -24,17 +24,6 @@ function getCookie(cname) {
   }
   return "";
 }
-<!--checks if a cookie is set-->
-function checkCookie() {
-  var user = getCookie("username");
-  if (user != "") {
-    alert("Welcome again " + user);
-  } else {
-    user = prompt("Please enter your name:", "");
-    if (user != "" && user != null) {
-      setCookie("username", user, 365);
-    }
-  }
 }
 </script>
 </head>
