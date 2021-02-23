@@ -9,7 +9,7 @@ function setCookie(cname,cvalue,exdays) {
   var expires = "expires=" + d.toGMTString();
   document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
-<!--returns the value opf the cookie-->
+<!--returns the value of the cookie-->
 function getCookie(cname) {
   var name = cname + "=";
   var ca = document.cookie.split(';');
