@@ -1,4 +1,4 @@
-//setting new cookies by gettig the name,the time should expire and the value
+//setting new cookies by getting the name,the time should expire and the value
 function setCookie(cname,cvalue,exdays)
 {
   var d = new Date();
