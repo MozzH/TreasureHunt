@@ -1,4 +1,4 @@
-//getting the position of the user
+//getting the position of the user; update every two minutes
 function getLocation()
 {
   if (navigator.geolocation)
@@ -7,8 +7,9 @@ function getLocation()
   } 
   else 
   { 
-    x.innerHTML = "Geolocation is not supported by this browser.";
+    alert("Geolocation is not supported by this browser.");
   }
+  setTimeout(getLocation, 120000);
 }
 
 //showing the postition of the user
@@ -19,3 +20,4 @@ function showPosition(position)
 }
 
 getLocation();
+showPosition();
