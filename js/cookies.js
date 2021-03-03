@@ -1,16 +1,16 @@
 //setting new cookies by getting the name,the time should expire and the value
-function setCookie(cname,cvalue,exdays)
+function setCookie(cookieName, cookieValue, expirationDays)
 {
-  var d = new Date();
-  d.setTime(d.getTime() + (exdays*24*60*60*1000));
-  var expires = "expires=" + d.toGMTString();
-  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  var date = new Date();
+  date.setTime(date.getTime() + (expirationDays*24*60*60*1000));
+  var expires = "expires=" + date.toGMTString();
+  document.cookie = cookieName + "=" + cookieValue + ";" + expires + ";path=/";
 }
 
 //returns the value of the cookie
-function getCookie(cname)
+function getCookie(cookieName)
 {
-  var name = cname + "=";
+  var name = cookieName + "=";
   var ca = document.cookie.split(';');
     
   for(var i = 0; i < ca.length; i++)
