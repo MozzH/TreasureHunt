@@ -1,3 +1,9 @@
+/* naming functions:
+*   e.g. setCookie
+*   verb + Cookie
+*   set + Cookie
+*/
+
 //setting new cookies by getting the name,the time should expire and the value
 function setCookie(cookieName, cookieValue, expirationDays)
 {
@@ -27,4 +33,27 @@ function getCookie(cookieName)
     }
   }
   return "";
+}
+
+function checkCookie(cookieName)
+{
+  if (getCookie(cookieName) == "")
+  {
+    return false;
+  }
+  else
+  {
+    return true;
+  }
+}
+
+function deleteCookie(cookieName)
+{
+  let cookieValue = "";
+  var date = new Date();
+
+  date.setTime();
+
+  //find a way to delete stuff
+
 }
