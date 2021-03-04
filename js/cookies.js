@@ -51,8 +51,9 @@ function deleteCookie(cookieName)
 {
   let cookieValue = "";
   var date = new Date();
+  var time = date.getTime()
 
-  date.setTime();
+  date.setTime(time);
 
   //find a way to delete stuff
 
