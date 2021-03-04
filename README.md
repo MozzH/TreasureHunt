@@ -16,7 +16,7 @@ a Treasure Hunt application for CO1111 at UCLan Cyprus!
 
 *The scope of the project is to create an app which allows the user to explore the environment in a fun, interesting and entertaining way, the app utilizes its own application programming interface (API) to provide the user with various tasks!*
 
-### Social media
+## Social media
 
 <p align='center'>
 <a href="https://wolfdud3.github.io/CO1111_assignment/"><img height="30" src="https://cdn.discordapp.com/attachments/653348420156653581/817088625900257310/ApplicationFrameHost_tuDMbeASgE-removebg-preview.png"></a>&nbsp;&nbsp;
