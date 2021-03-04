@@ -5,6 +5,11 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" type="text/css" href="../css/huntCSS2.css" />
 		<title>Treasure Hunt - Project L.R.M</title>
+
+		<script src="/js/cookies.js"></script>
+		<script src="/js/geolocation.js"></script>
+		<script src="/js/LRM_script.js"></script>
+
 	</head>
 	
 	<body>
@@ -50,10 +55,25 @@
                 </div>
 
                 <form class="register-form">
-                    <input type="text" placeholder="Name" class="register-input"></input>
+                    <input id="nameInput"type="text" placeholder="Name" class="register-input"></input>
                     <br>
+                    <!--<input type="email" placeholder="e-Mail" class="register-input"></input>
+                    <br>-->
                     <button class="register-button">Let's go</button>
                 </form>
+
+				<script>
+
+					/*
+					*	Insert script to receive all the inputs from the forms
+					*
+					*
+					*/
+					var playerName = "";
+
+
+				</script>
+
             </div>		
         </div>
 
