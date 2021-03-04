@@ -32,3 +32,9 @@ function checkField()
         return true;
     }
 }
+
+//insert function to values from GET
+function getGet()
+{
+
+}

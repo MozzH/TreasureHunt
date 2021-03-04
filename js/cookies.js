@@ -3,6 +3,9 @@
 *   verb + Cookie
 *   set + Cookie
 */
+//cookies
+const playerName_cookie;
+const session_cookie;
 
 //setting new cookies by getting the name,the time should expire and the value
 function setCookie(cookieName, cookieValue, expirationDays)
