@@ -19,6 +19,10 @@ const qtype_num = "";           //Numeric
 const qtype_int = "INTEGER";    //Integer
 const qtype_bool = "BOOLEAN";   //Boolean
 
+//variables
+let session;
+let playername;
+
 //check for empty answer field
 function checkField()
 {
@@ -33,8 +37,29 @@ function checkField()
     }
 }
 
-//insert function to values from GET
-function getGet()
+//SESSION FUNCTIONS
+function startSession()
+{
+    
+}
+
+function endSession()
+{
+
+}
+
+//GAME FUNCTIONS
+function startGame()
+{
+    
+}
+
+function getQuestion()
+{
+
+}
+
+function getAnswer()
 {
 
 }
