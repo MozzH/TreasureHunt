@@ -6,6 +6,11 @@
 * **Location:**
   * *Online; Microsoft Teams*
 
+* **Participants:**
+  * *Al-Ghalibi Mohammed*
+  * *Robin K. Schulz*
+  * *Lefteris Tziambouris*
+
 #### Expectations:
  
 
@@ -38,4 +43,39 @@
   * API implementation
 * **Robin**
   * basic structure of website
+
+#  Second meeting - January 27th, 2021
+
+* **Time:**
+  * *5:00 PM EET*
+* **Location:**
+  * *Online; Microsoft Teams*
+
+* **Participants:**
+  * *Al-Ghalibi Mohammed*
+  * *Robin K. Schulz*
+  * *Lefteris Tziambouris*
+
+#### Expectations:
+ 
+
+ - clarifying working Method for GitHub to prevent complications    
+ - Assigning of further tasks: implementation of Cookies and Geolocation
+ - Information to create Twitter username
+ - Future meetings
+
+- - - -
+#### Outcomes: 
+
+-- Clarifying working methods for GitHub: Communication regards pulling and pushing on GitHub
+
+* **Assigning of further Tasks:**
+  * **Lefteris Tziambouris** 
+    * Implementation of Geolaction
+  * **Robin K. Schulz:**
+    * Implementation of Cookies
+ 
+ 
+ 
+
 
