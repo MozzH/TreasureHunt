@@ -1,5 +1,6 @@
 //URL of API
 const url_api = "https://www.codecyprus.org/th/api";
+const url_testapi = "http://www.codecyprus.org/th/testing";
 
 //URL of API + API function calling
 const selection_api = url_api + "/list";
