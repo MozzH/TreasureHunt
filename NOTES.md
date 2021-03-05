@@ -67,7 +67,7 @@
 - - - -
 #### Outcomes: 
 
--- Clarifying working methods for GitHub: Communication regards pulling and pushing on GitHub
+**Clarifying working methods for GitHub:** Communication regards pulling and pushing on GitHub
 
 * **Assigning of further Tasks:**
   * **Lefteris Tziambouris** 
