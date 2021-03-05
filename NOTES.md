@@ -116,7 +116,44 @@
     * Marketing
       * Got a new number for the social accounts of the application
  
+- - - -
+- - - - 
+#  Fourth meeting - March 4th, 2021
+
+* **Time:**
+  * *5:00 PM EET*
+* **Location:**
+  * *Online; Microsoft Teams*
+
+* **Participants:**
+  * *Al-Ghalibi Mohammed*
+  * *Lefteris Tziambouris*
+
+#### Expectations:
  
+
+ - Clarifying details about the API    
+ - Agreed on accelaring the progress of the project
+ - Agreed on fixing up left-out issues
+ - Agreed to have meetings more often
+
+#### Outcomes: 
+
+
+  * **Lefteris Tziambouris** 
+    * API work
+      * Agreed to start working on the actual API of the game
+  * **Robin K. Schulz:**
+    * JavaScript
+      * Worked on the cookies & worked on LRM Script
+  * **Al-Ghalibi Mohammed:**
+    * Marketing
+      * Created a new logo
+      * Created new social media accounts (Twitter, Instagram & Youtube)
+      * Worked on readme.md and the notes
+      * Posted stuff on social media
+- - - -
+- - - -
  
 
 
