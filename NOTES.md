@@ -1,47 +1,37 @@
-# Notes 
-## Team
-* Robin K. Schulz:
-  * CSS design
-  * Web development
-* Lefteris Tziambouris:
-  * Web development
-* Mohammed Al-Ghalibi:
-  * Social media
-  * Web development
+![enter image description here](https://cdn.discordapp.com/attachments/653348420156653581/817297349436899348/Group_meeting_notes___Activities-removebg-preview.png)
+#  First meeting - January 20th, 2021
 
+Time: 5:00 PM EET
+Location: Online; Microsoft Teams
 
-### 20th of January, 2021
-##### Outcomes
-* Mohammed:
-  * first proper design for landing page
-* Lefteris:
-  * js development
-  * API implementation
-* Robin
-  * basic structure of website
+#### Expectations:
+ 
 
+ - [ ]   Clear up structure 
+       
+ - [ ] Design of index
 
-### 28th of January, 2021
-* Mohammed:
-	* created design for website
-* Lefteris:
-	* begin of script for cookies
+         
 
-##### Outcomes:
-* All Members: continue with their tasks
+ - [ ] Team section on index
 
+         
 
-### 17th of February, 2021
-* Mohammed:
-	* further development of design structure
-* Lefteris:
-	* script for cookies in a deployable stage
-	* begin of script for geolocation
-* Robin:
-	* applied responsive design
-	* minor changes to design
-	* bug-fixes
+ - [ ] scope of project (basic info)
 
-##### Outcomes:
-* All Members: research about implementing Treasure Hunt API
+         
 
+ - [ ] Marketing/advertisement/twitter
+
+        
+
+ - [ ] Future meetings
+- - - -
+#### Outcomes: 
+```mermaid
+graph LR
+A[Al-Ghalibi Mohammed] --> B(Design of the landing page)
+C[Robin K. Schulz] --> D(Implementation of basic website structure)
+E[Lefteris Tziambouris] --> F(Basic internal development)
+
+```
