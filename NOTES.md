@@ -4,7 +4,7 @@
 * **Time:**
   * *5:00 PM EET*
 * **Location:**
-*  *Online; Microsoft Teams*
+  * *Online; Microsoft Teams*
 
 #### Expectations:
  
