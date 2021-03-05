@@ -28,11 +28,9 @@ Location: Online; Microsoft Teams
  - [ ] Future meetings
 - - - -
 #### Outcomes: 
-<div class="mermaid">
-     graph LR
+
+graph LR
 A[Al-Ghalibi Mohammed] --> B(Design of the landing page)
 C[Robin K. Schulz] --> D(Implementation of basic website structure)
 E[Lefteris Tziambouris] --> F(Basic internal development)
-
-</div>
 
