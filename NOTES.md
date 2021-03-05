@@ -7,30 +7,33 @@ Location: Online; Microsoft Teams
 #### Expectations:
  
 
- - [ ]   Clear up structure 
+ -   Clear up structure 
        
- - [ ] Design of index
+ -  Design of index
 
          
 
- - [ ] Team section on index
+ -  Team section on index
 
          
 
- - [ ] scope of project (basic info)
+ -  scope of project (basic info)
 
          
 
- - [ ] Marketing/advertisement/twitter
+ -  Marketing/advertisement/twitter
 
         
 
- - [ ] Future meetings
+ -  Future meetings
 - - - -
 #### Outcomes: 
 
 graph LR
-A[Al-Ghalibi Mohammed] --> B(Design of the landing page)
-C[Robin K. Schulz] --> D(Implementation of basic website structure)
-E[Lefteris Tziambouris] --> F(Basic internal development)
+- Al-Ghalibi Mohammed 
+* Design of the landing page
+- Robin K. Schulz 
+*  Implementation of basic website structure
+- Lefteris Tziambouris 
+*  Basic internal development
 
