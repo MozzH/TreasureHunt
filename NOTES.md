@@ -29,11 +29,10 @@ Location: Online; Microsoft Teams
 - - - -
 #### Outcomes: 
 
-graph LR
 - Al-Ghalibi Mohammed 
-* Design of the landing page
++ Design of the landing page
 - Robin K. Schulz 
-*  Implementation of basic website structure
++  Implementation of basic website structure
 - Lefteris Tziambouris 
-*  Basic internal development
++ Basic internal development
 
