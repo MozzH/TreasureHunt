@@ -29,13 +29,13 @@ Location: Online; Microsoft Teams
 - - - -
 #### Outcomes: 
 
-- Al-Ghalibi Mohammed 
-  Design of the landing page
+- **Al-Ghalibi Mohammed** 
+ *Design of the landing page*
 
 
-- Robin K. Schulz 
-   Implementation of basic website structure
+- **Robin K. Schulz** 
+   *Implementation of basic website structure* 
 
-- Lefteris Tziambouris 
- Basic internal development
+- **Lefteris Tziambouris** 
+*Basic internal development*
 
