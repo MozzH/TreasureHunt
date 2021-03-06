@@ -154,6 +154,38 @@
       * Posted stuff on social media
 - - - -
 - - - -
+ #  Fifth meeting - March 5th, 2021
+
+* **Time:**
+  * *6:00 PM EET*
+* **Location:**
+  * *Online; Microsoft Teams*
+
+* **Participants:**
+  * *Al-Ghalibi Mohammed*
+  * *Lefteris Tziambouris*
+  * *Robin K. Schulz*
+
+#### Expectations:
  
+
+ - Clarifying details about the API    
+ - Assign further tasks
+ - Agreed on shifting the attention on properly implementing the API
+ - Agreed to have meetings more often
+
+#### Outcomes: 
+
+
+  * **Lefteris Tziambouris** 
+    * API work 
+      * Will work on the API
+  * **Robin K. Schulz:**
+    * API Work & optimization
+      * Will work on the API
+  * **Al-Ghalibi Mohammed:**
+    * API Work & optimization
+      * Will work on the API
+
 
 
