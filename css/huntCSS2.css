@@ -154,6 +154,11 @@ button
     width: 75%;
 }
 
+.ul-remove
+{
+    list-style-type: none;
+}
+
 #navbar
 {
     border-bottom: 2px solid #263d5c;
