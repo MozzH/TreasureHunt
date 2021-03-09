@@ -1,9 +1,8 @@
 //URL of API
 const url_api = "https://www.codecyprus.org/th/api";
-const url_testapi = "http://www.codecyprus.org/th/testing";
 
 //URL of API + API function calling
-const selection_api = url_api + "/list";
+const list_api = url_api + "/list";
 const start_api = url_api + "/start";
 
 const question_api = url_api + "/question";
@@ -24,6 +23,8 @@ const qtype_bool = "BOOLEAN";   //Boolean
 let session;
 let playername;
 
+let huntList; //html id: hunt-list
+
 //check for empty answer field
 function checkField()
 {
@@ -37,6 +38,8 @@ function checkField()
         return true;
     }
 }
+//COOKIE FUNCTIONS  >>replace cookies.js later<<
+
 
 //SESSION FUNCTIONS
 function startSession()
@@ -50,6 +53,17 @@ function endSession()
 }
 
 //GAME FUNCTIONS
+function getHunt()
+{
+    fetch(list_api)
+        .then(response => response.json)//https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+        .then(JSONresponse =>
+            {
+                huntList = document.getElementById('hunt-list');
+            }
+            )
+}
+
 function startGame()
 {
     
