@@ -3,6 +3,7 @@
 
 #  Project L.R.M.
 a Treasure Hunt application for CO1111 at UCLan Cyprus!
+<br>
 available at: https://wolfdud3.github.io/CO1111_assignment/
 
 ## Team Members
