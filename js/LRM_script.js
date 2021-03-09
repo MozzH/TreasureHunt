@@ -1,5 +1,5 @@
 //URL of API
-const url_api = "https://www.codecyprus.org/th/api";
+const url_api = "https://codecyprus.org/th/api";
 
 //URL of API + API function calling
 const list_api = url_api + "/list";
@@ -55,26 +55,66 @@ function endSession()
 //GAME FUNCTIONS
 function getHunt()
 {
+    console.log("getHunt called")
     fetch(list_api)
-        .then(response => response.json)//https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+        .then(response => response.json())//https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
         .then(JSONresponse =>
             {
-                huntList = document.getElementById('hunt-list');
+                console.log(JSONresponse);
+                if(JSONresponse.status == "OK")
+                {
+                    console.log("4653");
+                    let treasureHunt; //
+
+                    huntList = document.getElementById('hunt-list');
+
+                    for (treasureHunt of JSONresponse.treasureHunts) //for each
+                    {
+                        //add li elements to ul
+                        //give id to every li (use uuid)
+                        let THelement = document.createElement('li');
+                        //THelement.id = treasureHunt.uuid;
+
+                        let THelementName = document.createElement('h3');
+                        THelementName.innerText = treasureHunt.name;
+
+                        let THelementButton = document.createElement('button');
+                        THelementButton.innerText = "Play";
+                        THelementButton.id = treasureHunt.uuid;
+                        THelementButton.addEventListener("click", startGame);
+
+                        THelement.appendChild(THelementName);
+                        THelement.appendChild(THelementButton);
+                        huntList.appendChild(THelement);    //puts li inside of ul;                         huntList.innerHTML += "<li> </li>"
+                    }
+                }
+                else
+                {
+                    //find something for error
+                    console.log("No OK response");
+                }
+                
             }
             )
 }
 
-function startGame()
+function startGame(event)    //call with onclick=""
 {
-    
+    //start session + remember session id
+    console.log(   event.target.id);
 }
 
 function getQuestion()
 {
+    //get questions using session id
+}
+
+function sendAnswer()   //call with onclick=""
+{
 
 }
 
-function getAnswer()
+function skipAnswer()   //call with onclick=""
 {
 
 }
