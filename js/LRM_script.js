@@ -14,8 +14,8 @@ const leaderboard = url_api + "/leaderboard";
 
 //Question type
 const qtype_choice = "MCQ";     //Multiple Choice
-const qtype_text = "";          //Text
-const qtype_num = "";           //Numeric
+const qtype_text = "TEXT";      //Text
+const qtype_num = "NUMERIC";    //Numeric
 const qtype_int = "INTEGER";    //Integer
 const qtype_bool = "BOOLEAN";   //Boolean
 
@@ -57,7 +57,7 @@ function getHunt()
 {
     console.log("getHunt called")
     fetch(list_api)
-        .then(response => response.json())//https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+        .then(response => response.json())  //https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
         .then(JSONresponse =>
             {
                 console.log(JSONresponse);
@@ -74,34 +74,61 @@ function getHunt()
                         //give id to every li (use uuid)
                         let THelement = document.createElement('li');
                         //THelement.id = treasureHunt.uuid;
+                        THelement.class = "";
 
                         let THelementName = document.createElement('h3');
                         THelementName.innerText = treasureHunt.name;
 
                         let THelementButton = document.createElement('button');
-                        THelementButton.innerText = "Play";
                         THelementButton.id = treasureHunt.uuid;
+                        THelementButton.innerText = "Play";
                         THelementButton.addEventListener("click", startGame);
 
                         THelement.appendChild(THelementName);
                         THelement.appendChild(THelementButton);
-                        huntList.appendChild(THelement);    //puts li inside of ul;                         huntList.innerHTML += "<li> </li>"
+                        huntList.appendChild(THelement);    //puts li inside of ul; instead of huntList.innerHTML += "<li> </li>"
                     }
                 }
                 else
                 {
-                    //find something for error
-                    console.log("No OK response");
+                    //error message
+                    window.alert("There was an error. Please refresh or try again later.")
+                    console.log("ERROR: No OK response");
                 }
                 
             }
-            )
+        );
 }
 
-function startGame(event)    //call with onclick=""
+function startGame(event)    //called with EventListener(click)
 {
     //start session + remember session id
-    console.log(   event.target.id);
+    console.log(event.target.id);
+    let TreasureHuntID = event.target.id;
+
+    //Example url from CodeCyprus: https://codecyprus.org/th/api/start?player=Homer&app=simpsons-app&treasure-hunt-id=ag9nfmNvZGVjeXBydXNvcmdyGQsSDFRyZWFzdXJlSHVudBiAgICAvKGCCgw
+    let startGameURL = start_api + "?player=" + playername + "&app=lrm-quiz&treasure-hunt-id=" + TreasureHuntID;
+    fetch(startGameURL)
+        .then(response => response.json())
+        .then(JSONresponse2=>
+            {
+                console.log(startGameURL);
+                console.log(JSONresponse2);
+                if(JSONresponse2.status == "OK")
+                {
+                    //code
+                }
+                else
+                {
+                    //error message
+                    //create custom message for each error
+                    window.alert("There was an error.")
+                    console.log("ERROR: No OK response")
+                }
+
+            }
+
+        );
 }
 
 function getQuestion()
