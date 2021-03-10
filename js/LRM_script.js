@@ -106,7 +106,7 @@ function startGame(event)    //called with EventListener(click)
 {
     //start session + remember session id
     console.log(event.target.id);
-    let TreasureHuntID = event.target.id;
+    let TreasureHuntID = event.target.id; //move out from function into html
 
     //Example url from CodeCyprus: https://codecyprus.org/th/api/start?player=Homer&app=simpsons-app&treasure-hunt-id=ag9nfmNvZGVjeXBydXNvcmdyGQsSDFRyZWFzdXJlSHVudBiAgICAvKGCCgw
     let startGameURL = start_api + "?player=" + playername + "&app=lrm-quiz&treasure-hunt-id=" + TreasureHuntID;
@@ -118,7 +118,12 @@ function startGame(event)    //called with EventListener(click)
                 console.log(JSONresponse2);
                 if(JSONresponse2.status == "OK")
                 {
-                    //code
+                    /*
+                    pseudo:
+                    - open new page
+                    - pass session id as html parameter
+                    */
+                   window.open('quiz.html', '_self', true);
                 }
                 else
                 {
