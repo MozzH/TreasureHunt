@@ -130,8 +130,8 @@ function startGame(event)    //called with EventListener(click)
                 {
                     //error message
                     //create custom message for each error
-                    window.alert("There was an error.")
-                    console.log("ERROR: No OK response")
+                    window.alert("There was an error.");
+                    console.log("ERROR: No OK response");
                 }
 
             }
@@ -158,11 +158,21 @@ function getQuestion()
 
                     - append div 
                     */
+                    questionBox = document.getElementById('questionBox');
+                    
+                    let questionParagraph = document.createElement('p');
+                    questionParagraph.innerHTML(JSONresponse3.questionText);
+
+                    //that's were I had a break. Write more stuff here
+
+                    //append everything!
+                    questionBox.appendChild(questionParagraph);
+
                 }
                 else
                 {
-                    window.alert("There was an error.")
-                    console.log("ERROR: No OK response.")
+                    window.alert("There was an error.");
+                    console.log("ERROR: No OK response.");
                 }
             }
             );
