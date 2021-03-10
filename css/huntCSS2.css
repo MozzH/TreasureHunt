@@ -93,6 +93,10 @@ button
 {
     text-align: center;
 }
+.li-TH
+{
+    list-style-type: none;
+}
 
 .navbar-button
 {
@@ -152,11 +156,6 @@ button
 .twitter-timeline
 {
     width: 75%;
-}
-
-.ul-remove
-{
-    list-style-type: none;
 }
 
 #navbar
