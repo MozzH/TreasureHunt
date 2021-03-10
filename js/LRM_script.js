@@ -142,7 +142,30 @@ function startGame(event)    //called with EventListener(click)
 function getQuestion()
 {
     //get questions using session id
-    let getQuestionURL = question_api + "?=session" + sessionid
+    //https://codecyprus.org/th/api/question?session=ag9nfmNvZGVjeXBydXNvcmdyFAsSB1Nlc3Npb24YgICAoMa0gQoM
+    let getQuestionURL = question_api + "?=session" + sessionid;
+    fetch(getQuestionURL)
+        .then(response => response.json())
+        .then(JSONresponse3 =>
+            {
+                if(JSONresponse3.status == "OK")
+                {
+                    /*
+                    pseudo:
+                    - create div
+                    - p with questionText
+
+
+                    - append div 
+                    */
+                }
+                else
+                {
+                    window.alert("There was an error.")
+                    console.log("ERROR: No OK response.")
+                }
+            }
+            );
 }
 
 function sendAnswer()   //call with onclick=""
