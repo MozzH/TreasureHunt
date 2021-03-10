@@ -74,7 +74,8 @@ function getHunt()
                         //give id to every li (use uuid)
                         let THelement = document.createElement('li');
                         //THelement.id = treasureHunt.uuid;
-                        THelement.class="ul-remove";
+                        THelement.className="ul-remove";
+                        THelement.className="li-TH";
                        
 
                         let THelementName = document.createElement('h3');
