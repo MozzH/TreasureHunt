@@ -63,7 +63,6 @@ function getHunt()
                 console.log(JSONresponse);
                 if(JSONresponse.status == "OK")
                 {
-                    console.log("4653");
                     let treasureHunt; //
 
                     huntList = document.getElementById('hunt-list');
@@ -123,7 +122,9 @@ function startGame(event)    //called with EventListener(click)
                     - open new page
                     - pass session id as html parameter
                     */
-                   window.open('quiz.html', '_self', true);
+                    let sessionid = JSONresponse2.session;
+
+                    window.open("quiz.html?sessionid=" + sessionid, '_self', true);
                 }
                 else
                 {
@@ -141,6 +142,7 @@ function startGame(event)    //called with EventListener(click)
 function getQuestion()
 {
     //get questions using session id
+    let getQuestionURL = question_api + "?=session" + sessionid
 }
 
 function sendAnswer()   //call with onclick=""
