@@ -107,7 +107,7 @@ function getPlayername()
     * popup window? https://www.w3schools.com/js/js_popup.asp
     * if popup window, then put it into getHunt?
     */
-    playername = promt("Please enter your name:", "");
+    playername = prompt("Please enter your name:", "");
     if (playername == "")
     {
         //code for no name
