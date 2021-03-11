@@ -101,9 +101,17 @@ function getHunt()
         );
 }
 
-function getPlayername(event)
+function getPlayername()
 {
-    //get Playername from forms in register html?
+    /*
+    *
+    * get PLayername from forms in register html
+    * 
+    * 
+    * popup window? https://www.w3schools.com/js/js_popup.asp
+    * if popup window, then put it into getHunt
+    * 
+    */
 }
 
 function startGame(event)    //called with EventListener(click)
