@@ -150,6 +150,7 @@ function getQuestion()
             {
                 if(JSONresponse3.status == "OK")
                 {
+                    console.log("OK response");
                     /*
                     pseudo:
                     - create div
