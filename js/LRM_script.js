@@ -104,14 +104,20 @@ function getHunt()
 function getPlayername()
 {
     /*
-    *
-    * get PLayername from forms in register html
-    * 
-    * 
     * popup window? https://www.w3schools.com/js/js_popup.asp
-    * if popup window, then put it into getHunt
-    * 
+    * if popup window, then put it into getHunt?
     */
+    playername = promt("Please enter your name:", "");
+    if (playername == "")
+    {
+        //code for no name
+        window.alert("To play, you need to submit a name");
+    }
+    else 
+    {
+        return playername;
+    }
+
 }
 
 function startGame(event)    //called with EventListener(click)
@@ -121,7 +127,7 @@ function startGame(event)    //called with EventListener(click)
     let TreasureHuntID = event.target.id; //move out from function into html
 
     //Example url from CodeCyprus: https://codecyprus.org/th/api/start?player=Homer&app=simpsons-app&treasure-hunt-id=ag9nfmNvZGVjeXBydXNvcmdyGQsSDFRyZWFzdXJlSHVudBiAgICAvKGCCgw
-    let startGameURL = start_api + "?player=" + playername + "&app=lrm-quiz&treasure-hunt-id=" + TreasureHuntID;
+    let startGameURL = start_api + "?player=" + getPlayername() + "&app=lrm-quiz&treasure-hunt-id=" + TreasureHuntID;
     fetch(startGameURL)
         .then(response => response.json())
         .then(JSONresponse2=>
