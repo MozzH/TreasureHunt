@@ -162,7 +162,9 @@ function getQuestion()
 {
     //get questions using session id
     //https://codecyprus.org/th/api/question?session=ag9nfmNvZGVjeXBydXNvcmdyFAsSB1Nlc3Npb24YgICAoMa0gQoM
-    let getQuestionURL = question_api + "?=session" + sessionid;
+    const urlParams = new URLSearchParams(window.location.search);
+
+    let getQuestionURL = question_api + "?session=" + urlParams.get('sessionid');
     fetch(getQuestionURL)
         .then(response => response.json())
         .then(JSONresponse3 =>
@@ -181,7 +183,7 @@ function getQuestion()
                     questionBox = document.getElementById('questionBox');
                     
                     let questionParagraph = document.createElement('p');
-                    questionParagraph.innerHTML(JSONresponse3.questionText);
+                    questionParagraph.innerHTML = JSONresponse3.questionText;
 
                     //that's were I had a break. Write more stuff here
 
