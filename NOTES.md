@@ -186,6 +186,35 @@
   * **Al-Ghalibi Mohammed:**
     * API Work & optimization
       * Will work on the API
+#  Sixth meeting - March 10th, 2021
 
+* **Time:**
+  * *5:00 PM EET*
+* **Location:**
+  * *Online; Microsoft Teams*
+
+* **Participants:**
+  * *Al-Ghalibi Mohammed*
+  * *Lefteris Tziambouris*
+  * *Robin K. Schulz*
+
+#### Expectations:
+ 
+ - Clarifying details about the API    
+ - Assign further tasks
+ - going through the issues and feedback and fixing up what we've left behind
+
+#### Outcomes: 
+
+
+  * **Lefteris Tziambouris** 
+    * API work 
+      * Will work on the API
+  * **Robin K. Schulz:**
+    * API Work & optimization
+      * Will work on the API
+  * **Al-Ghalibi Mohammed:**
+    * API Work & Social media engagement
+      * Will work on the API & increase the engagement in social media
 
 
