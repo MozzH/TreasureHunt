@@ -1,5 +1,6 @@
 //URL of API
 const url_api = "https://codecyprus.org/th/api";
+const test_api = "https://codecyprus.org/th/test-api";
 
 //URL of API + API function calling
 const list_api = url_api + "/list";
@@ -20,7 +21,6 @@ const qtype_int = "INTEGER";    //Integer
 const qtype_bool = "BOOLEAN";   //Boolean
 
 //variables
-let sessionid;
 let playername;
 
 let huntList; //html id: hunt-list
@@ -101,6 +101,11 @@ function getHunt()
         );
 }
 
+function getPlayername(event)
+{
+    //get Playername from forms in register html?
+}
+
 function startGame(event)    //called with EventListener(click)
 {
     //start session + remember session id
@@ -122,7 +127,7 @@ function startGame(event)    //called with EventListener(click)
                     - open new page
                     - pass session id as html parameter
                     */
-                    sessionid = JSONresponse2.session;
+                    let sessionid = JSONresponse2.session;
 
                     window.open("quiz.html?sessionid=" + sessionid, '_self', true);
                 }
