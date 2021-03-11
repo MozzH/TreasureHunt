@@ -20,7 +20,7 @@ const qtype_int = "INTEGER";    //Integer
 const qtype_bool = "BOOLEAN";   //Boolean
 
 //variables
-let session;
+let sessionid;
 let playername;
 
 let huntList; //html id: hunt-list
@@ -122,7 +122,7 @@ function startGame(event)    //called with EventListener(click)
                     - open new page
                     - pass session id as html parameter
                     */
-                    let sessionid = JSONresponse2.session;
+                    sessionid = JSONresponse2.session;
 
                     window.open("quiz.html?sessionid=" + sessionid, '_self', true);
                 }
