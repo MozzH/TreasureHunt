@@ -176,8 +176,6 @@ function getQuestion()
                     pseudo:
                     - create div
                     - p with questionText
-
-
                     - append div 
                     */
                     questionBox = document.getElementById('questionBox');
@@ -185,7 +183,58 @@ function getQuestion()
                     let questionParagraph = document.createElement('p');
                     questionParagraph.innerHTML = JSONresponse3.questionText;
 
-                    //that's were I had a break. Write more stuff here
+                    let questionType = JSONresponse3.questionType;
+                    /*
+                    *
+                    * BOOLEAN:
+                    * - two buttons
+                    * 
+                    * MULTIPLE CHOICE:
+                    * - four buttons
+                    * 
+                    * INTEGER:
+                    * - textbox for answer
+                    * - button to submit answer; label: submit answer
+                    * 
+                    * NUMERIC:
+                    * - textbox for answer
+                    * - button to submit answer; label: submit answer
+                    * 
+                    * TEXT:
+                    * - textBox for answer
+                    * - Button to submit answer; label: submit answer
+                    * 
+                    */
+
+                    //BOOLEAN
+                    if (questionType == "BOOLEAN")
+                    {
+                        //two buttons w/ true and false
+                    }
+
+                    //MULTIPLE CHOICE
+                    if (questionType == "MCQ")
+                    {
+                        //four buttons
+                    }
+
+                    //INTEGER
+                    if (questionType == "INTEGER")
+                    {
+                        //textbox + submit button
+                    }
+
+                    //NUMERIC
+                    if (questionType == "NUMERIC")
+                    {
+                        //textbox + submit button
+                    }
+
+                    //TEXT
+                    if (questionType == "TEXT")
+                    {
+                        //textbox + submit button
+                    }
 
                     //append everything!
                     questionBox.appendChild(questionParagraph);
