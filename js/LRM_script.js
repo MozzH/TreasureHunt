@@ -184,27 +184,6 @@ function getQuestion()
                     questionParagraph.innerHTML = JSONresponse3.questionText;
 
                     let questionType = JSONresponse3.questionType;
-                    /*
-                    *
-                    * BOOLEAN:
-                    * - two buttons
-                    * 
-                    * MULTIPLE CHOICE:
-                    * - four buttons
-                    * 
-                    * INTEGER:
-                    * - textbox for answer
-                    * - button to submit answer; label: submit answer
-                    * 
-                    * NUMERIC:
-                    * - textbox for answer
-                    * - button to submit answer; label: submit answer
-                    * 
-                    * TEXT:
-                    * - textBox for answer
-                    * - Button to submit answer; label: submit answer
-                    * 
-                    */
 
                     //BOOLEAN
                     if (questionType == "BOOLEAN")
