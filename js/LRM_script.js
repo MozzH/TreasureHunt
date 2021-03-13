@@ -53,7 +53,7 @@ function endSession()
 }
 
 //GAME FUNCTIONS
-function getHunt()
+function getHunt()      //get List of Treasure Hunts
 {
     console.log("getHunt called")
     fetch(list_api)
@@ -105,7 +105,6 @@ function getPlayername()
 {
     /*
     * popup window? https://www.w3schools.com/js/js_popup.asp
-    * if popup window, then put it into getHunt?
     */
     playername = prompt("Please enter your name:", "");
     if (playername == "")
@@ -148,8 +147,8 @@ function startGame(event)    //called with EventListener(click)
                 else
                 {
                     //error message
-                    //create custom message for each error
-                    window.alert("There was an error.");
+                    //get custom message for each error
+                    window.alert(JSONresponse2.errorMessages);
                     console.log("ERROR: No OK response");
                 }
 
@@ -184,35 +183,68 @@ function getQuestion()
                     questionParagraph.innerHTML = JSONresponse3.questionText;
 
                     let questionType = JSONresponse3.questionType;
+                    let skip = JSONresponse3.canBeSkipped;
 
                     //BOOLEAN
                     if (questionType == "BOOLEAN")
                     {
+                        console.log("type = " + questionType)
                         //two buttons w/ true and false
+                        //button true
+                        let buttonTrue = document.createElement('button');
+                        buttonTrue.innerText("True");
+                        
+                        //button false
+                        let buttonFalse = document.createElement('button');
+                        buttonFalse.innerText("False");
+
+                        //append
+                        questionBox.appendChild(buttonTrue);
+                        questionBox.appendChild(buttonFalse);
+                        
                     }
 
                     //MULTIPLE CHOICE
                     if (questionType == "MCQ")
                     {
+                        console.log("type = " + questionType)
                         //four buttons
+
+                        //button 1
+
+                        //button 2
+
+                        //button 3
+
+                        //button 4
+
                     }
 
                     //INTEGER
                     if (questionType == "INTEGER")
                     {
+                        console.log("type = " + questionType)
                         //textbox + submit button
                     }
 
                     //NUMERIC
                     if (questionType == "NUMERIC")
                     {
+                        console.log("type = " + questionType)
                         //textbox + submit button
                     }
 
                     //TEXT
                     if (questionType == "TEXT")
                     {
+                        console.log("type = " + questionType)
                         //textbox + submit button
+                    }
+
+                    //place skip button
+                    if (skip == true)
+                    {
+                        //create button somewhere
                     }
 
                     //append everything!
@@ -221,7 +253,7 @@ function getQuestion()
                 }
                 else
                 {
-                    window.alert("There was an error.");
+                    window.alert(JSONrepsonse3.errorMessages);
                     console.log("ERROR: No OK response.");
                 }
             }
