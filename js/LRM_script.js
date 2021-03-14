@@ -171,12 +171,6 @@ function getQuestion()
                 if(JSONresponse3.status == "OK")
                 {
                     console.log("OK response");
-                    /*
-                    pseudo:
-                    - create div
-                    - p with questionText
-                    - append div 
-                    */
                     questionBox = document.getElementById('questionBox');
                     
                     let questionParagraph = document.createElement('p');
@@ -185,61 +179,63 @@ function getQuestion()
                     let questionType = JSONresponse3.questionType;
                     let skip = JSONresponse3.canBeSkipped;
 
-                    //BOOLEAN
-                    if (questionType == "BOOLEAN")
+                    switch(questionType)
                     {
-                        console.log("type = " + questionType)
-                        //two buttons w/ true and false
-                        //button true
-                        let buttonTrue = document.createElement('button');
-                        buttonTrue.innerText("True");
-                        
-                        //button false
-                        let buttonFalse = document.createElement('button');
-                        buttonFalse.innerText("False");
+                        //BOOLEAN QUESTIONS
+                        case "BOOLEAN":
+                            
+                            console.log("type = " + questionType)
+                            //two buttons w/ true and false
+                            //button true
+                            let buttonTrue = document.createElement('button');
+                            buttonTrue.innerText("True");
+                            
+                            //button false
+                            let buttonFalse = document.createElement('button');
+                            buttonFalse.innerText("False");
+    
+                            //append
+                            questionBox.appendChild(buttonTrue);
+                            questionBox.appendChild(buttonFalse);    
+                            break;
 
-                        //append
-                        questionBox.appendChild(buttonTrue);
-                        questionBox.appendChild(buttonFalse);
-                        
+
+                        //MULTIPLE CHOICE QUESTIONS
+                        case "MCQ":
+
+                            console.log("type = " + questionType)
+                            //textBox
+
+                            //button 1
+    
+                            //button 2
+    
+                            //button 3
+    
+                            //button 4
+                            break;
+
+
+                        //INTEGER QUESTIONS
+                        case "INTEGER":
+                            console.log("type = " + questionType)
+                            //code for integer questions
+                            break;
+
+
+                        case "NUMERIC":
+                            console.log("type = " + questionType)
+                            //code for numeric questions;
+                            break;
+
+
+                        case "TEXT":
+
+                            console.log("type = " + questionType)
+                            //code for text questions
+                            break;
                     }
-
-                    //MULTIPLE CHOICE
-                    if (questionType == "MCQ")
-                    {
-                        console.log("type = " + questionType)
-                        //four buttons
-
-                        //button 1
-
-                        //button 2
-
-                        //button 3
-
-                        //button 4
-
-                    }
-
-                    //INTEGER
-                    if (questionType == "INTEGER")
-                    {
-                        console.log("type = " + questionType)
-                        //textbox + submit button
-                    }
-
-                    //NUMERIC
-                    if (questionType == "NUMERIC")
-                    {
-                        console.log("type = " + questionType)
-                        //textbox + submit button
-                    }
-
-                    //TEXT
-                    if (questionType == "TEXT")
-                    {
-                        console.log("type = " + questionType)
-                        //textbox + submit button
-                    }
+                    //END OF SWITCH/CASE
 
                     //place skip button
                     if (skip == true)
