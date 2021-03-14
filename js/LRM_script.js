@@ -119,7 +119,7 @@ function getPlayername()
 
 }
 
-function startGame(event)    //called with EventListener(click)
+function startGame(event)    //called with EventListener(click) in getHunt()
 {
     //start session + remember session id
     console.log(event.target.id);
@@ -160,7 +160,7 @@ function startGame(event)    //called with EventListener(click)
 function getQuestion()
 {
     //get questions using session id
-    //https://codecyprus.org/th/api/question?session=ag9nfmNvZGVjeXBydXNvcmdyFAsSB1Nlc3Npb24YgICAoMa0gQoM
+    //example: https://codecyprus.org/th/api/question?session=ag9nfmNvZGVjeXBydXNvcmdyFAsSB1Nlc3Npb24YgICAoMa0gQoM
     const urlParams = new URLSearchParams(window.location.search);
 
     let getQuestionURL = question_api + "?session=" + urlParams.get('sessionid');
@@ -172,9 +172,14 @@ function getQuestion()
                 {
                     console.log("OK response");
                     questionBox = document.getElementById('questionBox');
+                    answerBox = document.getElementById('answerBox');
                     
+                    //create question
                     let questionParagraph = document.createElement('p');
                     questionParagraph.innerHTML = JSONresponse3.questionText;
+                    //append questionParagraph
+                    questionBox.appendChild(questionParagraph);
+
 
                     let questionType = JSONresponse3.questionType;
                     let skip = JSONresponse3.canBeSkipped;
@@ -185,7 +190,9 @@ function getQuestion()
                         case "BOOLEAN":
                             
                             console.log("type = " + questionType)
+
                             //two buttons w/ true and false
+                            
                             //button true
                             let buttonTrue = document.createElement('button');
                             buttonTrue.innerText("True");
@@ -204,15 +211,35 @@ function getQuestion()
                         case "MCQ":
 
                             console.log("type = " + questionType)
-                            //textBox
+                            
+                            //create buttons
 
-                            //button 1
-    
-                            //button 2
-    
-                            //button 3
-    
-                            //button 4
+                            //button A
+                            let choiceA = document.createElement('button');
+                            choiceA.innerText = "A";
+                            choiceA.addEventListener('click', sendAnswer);
+
+                            //button B
+                            let choiceB = document.createElement('button');
+                            choiceB.innerText = "B";
+                            choiceB.addEventListener('click', sendAnswer);
+
+                            //button C
+                            let choiceC = document.createElement('button');
+                            choiceC.innerText = "C";
+                            choiceC.addEventListener('click', sendAnswer);
+
+                            //button D
+                            let choiceD = document.createElement('button');
+                            choiceD.innerText = "D";
+                            choiceC.addEventListener('click', sendAnswer);
+
+                            //append everything
+                            answerBox.appendChild(choiceA);
+                            answerBox.appendChild(choiceB);
+                            answerBox.appendChild(choiceC);
+                            answerBox.appendChild(choiceD);
+
                             break;
 
 
@@ -220,19 +247,71 @@ function getQuestion()
                         case "INTEGER":
                             console.log("type = " + questionType)
                             //code for integer questions
+
+                            //create form
+                            let intAnswer = document.createElement('form');
+                            intAnswer.action = 'javscript:sendAnswer(document.getElementById("intTextBox").value)';
+
+                            //create textBox in Form
+                            let intTextBox = document.createElement('input');
+                            intTextBox.type = "number";
+
+                            //submit button in form
+                            let intSubmit = document.createElement('input');
+                            intSubmit.type = "submit";
+
+                            //append everything
+                            intAnswer.appendChild(intTextBox);
+                            intAnswer.appendChild(intSubmit);
+                            answerBox.appendChild(intAnswer);
+
                             break;
 
 
+                        //NUMERIC QUESTIONS
                         case "NUMERIC":
                             console.log("type = " + questionType)
-                            //code for numeric questions;
+                            //code for numeric questions
+
+                            //create form
+                            let numAnswer = document.createElement('form');
+                            numAnswer.action = 'javscript:sendAnswer(document.getElementById("numTextBox").value)';
+
+                            //create textBox in form
+                            let numTextBox = document.createElement('input');
+                            numTextBox.type = "number";
+
+                            //submit button in form
+                            let numSubmit = document.createElement('input');
+                            numSubmit.type = "submit";
+
+                            //append everything
+                            numAnswer.appendChild(numTextBox);
+                            numAnswer.appendChild(numSubmit);
+                            answerBox.appendChild(numAnswer);
+
                             break;
 
 
+                        //TEXT QUESTIONS
                         case "TEXT":
 
                             console.log("type = " + questionType)
                             //code for text questions
+
+                            //create form
+                            let textAnswer = document.createElemend('form');
+                            textAnswer.action = 'javscript:sendAnswer(document.getElementById("textTextBox").value)';
+
+                            //create textBox in form
+                            let textTextBox = document.createElement('input');
+                            textTextBox.type = "type";
+
+                            //submit button in form
+                            let textSubmit = document.createElement('input');
+                            textSubmit.type = "button";
+
+                            //append everything
                             break;
                     }
                     //END OF SWITCH/CASE
@@ -244,7 +323,6 @@ function getQuestion()
                     }
 
                     //append everything!
-                    questionBox.appendChild(questionParagraph);
 
                 }
                 else
@@ -256,7 +334,7 @@ function getQuestion()
             );
 }
 
-function sendAnswer()   //call with onclick=""
+function sendAnswer()   //call with EventListener('click') in getQuestion()
 {
 
 }
