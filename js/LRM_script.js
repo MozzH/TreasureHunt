@@ -189,12 +189,12 @@ function getQuestion()
                             //button true
                             let buttonTrue = document.createElement('button');
                             buttonTrue.innerText = "True";
-                            buttonTrue.addEventListener("click", sendAnswer('true'));
+                            buttonTrue.addEventListener("click", sendAnswer);
                             
                             //button false
                             let buttonFalse = document.createElement('button');
                             buttonFalse.innerText = "False";
-                            buttonFalse.addEventListener("click", sendAnswer('false'));
+                            buttonFalse.addEventListener("click", sendAnswer);
     
                             //append
                             questionBox.appendChild(buttonTrue);
@@ -212,22 +212,22 @@ function getQuestion()
                             //button A
                             let choiceA = document.createElement('button');
                             choiceA.innerText = "A";
-                            choiceA.addEventListener("click", sendAnswer('A'));
+                            choiceA.addEventListener("click", sendAnswer);
 
                             //button B
                             let choiceB = document.createElement('button');
                             choiceB.innerText = "B";
-                            choiceB.addEventListener("click", sendAnswer('B'));
+                            choiceB.addEventListener("click", sendAnswer);
 
                             //button C
                             let choiceC = document.createElement('button');
                             choiceC.innerText = "C";
-                            choiceC.addEventListener("click", sendAnswer('C'));
+                            choiceC.addEventListener("click", sendAnswer);
 
                             //button D
                             let choiceD = document.createElement('button');
                             choiceD.innerText = "D";
-                            choiceC.addEventListener("click", sendAnswer('D'));
+                            choiceC.addEventListener("click", sendAnswer);
 
                             //append everything
                             answerBox.appendChild(choiceA);
@@ -296,7 +296,7 @@ function getQuestion()
                             //code for text questions
 
                             //create form
-                            let textAnswer = document.createElemend('form');
+                            let textAnswer = document.createElement('form');
                             textAnswer.action = 'javscript:sendAnswer(document.getElementById("textTextBox").value)';
 
                             //create textBox in form
@@ -330,17 +330,20 @@ function getQuestion()
             );
 }
 
-function sendAnswer()   //call with EventListener('click') in getQuestion()
+function sendAnswer(event)   //call with EventListener('click') in getQuestion()
 {
 
     //example url: https://codecyprus.org/th/api/answer?session=ag9nfmNvZGVjeXBydXNvcmdyFAsSB1Nlc3Npb24YgICAoMa0gQoM&answer=42
     const urlParams = new URLSearchParams(window.location.search);
+    let answer = event.target.id;
 
-    let sendAnswerURL = answer_api + "?session=" + urlParams.get(sessionid) + "&answer=" /*Answer*/;
+    let sendAnswerURL = answer_api + "?session=" + urlParams.get(sessionid) + "&answer=" + answer;
+
+    console.log(sendAnswerURL);
 
 }
 
-function skipAnswer()   //call with onclick=""
+function skipAnswer()   //call with onclick=""?
 {
 
 }
