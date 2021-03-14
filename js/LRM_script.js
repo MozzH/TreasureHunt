@@ -13,13 +13,6 @@ const skip_api = url_api + "/skip";
 const score_api = url_api + "/score";
 const leaderboard = url_api + "/leaderboard";
 
-//Question type
-const qtype_choice = "MCQ";     //Multiple Choice
-const qtype_text = "TEXT";      //Text
-const qtype_num = "NUMERIC";    //Numeric
-const qtype_int = "INTEGER";    //Integer
-const qtype_bool = "BOOLEAN";   //Boolean
-
 //variables
 let playername;
 
@@ -195,11 +188,13 @@ function getQuestion()
                             
                             //button true
                             let buttonTrue = document.createElement('button');
-                            buttonTrue.innerText("True");
+                            buttonTrue.innerText = "True";
+                            buttonTrue.addEventListener("click", sendAnswer('true'));
                             
                             //button false
                             let buttonFalse = document.createElement('button');
-                            buttonFalse.innerText("False");
+                            buttonFalse.innerText = "False";
+                            buttonFalse.addEventListener("click", sendAnswer('false'));
     
                             //append
                             questionBox.appendChild(buttonTrue);
@@ -217,22 +212,22 @@ function getQuestion()
                             //button A
                             let choiceA = document.createElement('button');
                             choiceA.innerText = "A";
-                            choiceA.addEventListener('click', sendAnswer);
+                            choiceA.addEventListener("click", sendAnswer('A'));
 
                             //button B
                             let choiceB = document.createElement('button');
                             choiceB.innerText = "B";
-                            choiceB.addEventListener('click', sendAnswer);
+                            choiceB.addEventListener("click", sendAnswer('B'));
 
                             //button C
                             let choiceC = document.createElement('button');
                             choiceC.innerText = "C";
-                            choiceC.addEventListener('click', sendAnswer);
+                            choiceC.addEventListener("click", sendAnswer('C'));
 
                             //button D
                             let choiceD = document.createElement('button');
                             choiceD.innerText = "D";
-                            choiceC.addEventListener('click', sendAnswer);
+                            choiceC.addEventListener("click", sendAnswer('D'));
 
                             //append everything
                             answerBox.appendChild(choiceA);
@@ -284,6 +279,7 @@ function getQuestion()
                             //submit button in form
                             let numSubmit = document.createElement('input');
                             numSubmit.type = "submit";
+                            numSubmit.value = "submit";
 
                             //append everything
                             numAnswer.appendChild(numTextBox);
@@ -336,6 +332,11 @@ function getQuestion()
 
 function sendAnswer()   //call with EventListener('click') in getQuestion()
 {
+
+    //example url: https://codecyprus.org/th/api/answer?session=ag9nfmNvZGVjeXBydXNvcmdyFAsSB1Nlc3Npb24YgICAoMa0gQoM&answer=42
+    const urlParams = new URLSearchParams(window.location.search);
+
+    let sendAnswerURL = answer_api + "?session=" + urlParams.get(sessionid) + "&answer=" /*Answer*/;
 
 }
 
