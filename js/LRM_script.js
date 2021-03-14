@@ -15,7 +15,7 @@ const leaderboard = url_api + "/leaderboard";
 
 //variables
 let playername;
-
+//let sessionid;
 let huntList; //html id: hunt-list
 
 //check for empty answer field
@@ -245,15 +245,17 @@ function getQuestion()
 
                             //create form
                             let intAnswer = document.createElement('form');
-                            intAnswer.action = 'javscript:sendAnswer(document.getElementById("intTextBox").value)';
+                            intAnswer.action = 'javascript:sendAnswer()';
 
                             //create textBox in Form
                             let intTextBox = document.createElement('input');
+                            intTextBox.id = "answerTextBox";
                             intTextBox.type = "number";
 
                             //submit button in form
                             let intSubmit = document.createElement('input');
                             intSubmit.type = "submit";
+                            //event listener
 
                             //append everything
                             intAnswer.appendChild(intTextBox);
@@ -270,10 +272,11 @@ function getQuestion()
 
                             //create form
                             let numAnswer = document.createElement('form');
-                            numAnswer.action = 'javscript:sendAnswer(document.getElementById("numTextBox").value)';
+                            numAnswer.action = 'javascript:sendAnswer()';
 
                             //create textBox in form
                             let numTextBox = document.createElement('input');
+                            numTextBox.id = "answerTextBox";
                             numTextBox.type = "number";
 
                             //submit button in form
@@ -297,10 +300,11 @@ function getQuestion()
 
                             //create form
                             let textAnswer = document.createElement('form');
-                            textAnswer.action = 'javscript:sendAnswer(document.getElementById("textTextBox").value)';
+                            textAnswer.action = 'javascript:sendAnswer()';
 
                             //create textBox in form
                             let textTextBox = document.createElement('input');
+                            textTextBox.id = "answerTextBox";
                             textTextBox.type = "type";
 
                             //submit button in form
@@ -333,11 +337,29 @@ function getQuestion()
 function sendAnswer(event)   //call with EventListener('click') in getQuestion()
 {
 
+    /*
+    *
+    *If event = undefined
+    *   {
+    *   search for textBox (with id)
+    *   get value from textBox
+    *   set answer to value of textbox
+    *   }
+    * 
+    */
+   let answer;
+
+   if (event == undefined)
+   {
+        let textBoxInput = document.getElementById("answerTextBox").value;
+        answer = textBoxInput;
+   }
+
     //example url: https://codecyprus.org/th/api/answer?session=ag9nfmNvZGVjeXBydXNvcmdyFAsSB1Nlc3Npb24YgICAoMa0gQoM&answer=42
     const urlParams = new URLSearchParams(window.location.search);
-    let answer = event.target.id;
 
     let sendAnswerURL = answer_api + "?session=" + urlParams.get(sessionid) + "&answer=" + answer;
+    //let sendAnswerURL = answer_api + "?session=" + sessionid + "&answer=" + answer;
 
     console.log(sendAnswerURL);
 
