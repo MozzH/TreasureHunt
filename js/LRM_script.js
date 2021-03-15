@@ -411,7 +411,7 @@ function sendAnswer(event)   //call with EventListener('click') in getQuestion()
                     //reload page
                     window.location.reload(true);
                 }
-                else if (JSONresponse4.correct == false)
+                if (JSONresponse4.correct == false)
                 {
                     console.log("false answer");
                 }
