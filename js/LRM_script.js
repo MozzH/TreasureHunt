@@ -10,6 +10,8 @@ const question_api = url_api + "/question";
 const answer_api = url_api + "/answer";
 const skip_api = url_api + "/skip";
 
+const location_api = url_api + "/location"
+
 const score_api = url_api + "/score";
 const leaderboard = url_api + "/leaderboard";
 
@@ -166,6 +168,12 @@ function getQuestion()
                     console.log("OK response");
                     questionBox = document.getElementById('questionBox');
                     answerBox = document.getElementById('answerBox');
+
+                    //check for location
+                    if (JSONresponse3.requiresLocation == true)
+                    {
+                        getLocation();
+                    }
                     
                     //create question
                     let questionParagraph = document.createElement('p');
@@ -407,11 +415,61 @@ function sendAnswer(event)   //call with EventListener('click') in getQuestion()
         );
     
 
-    
-
 }
 
 function skipAnswer()   //call with onclick=""?
 {
 
+}
+
+
+//GEOLOCATION FUNCTIONS
+function getLocation()
+{
+    let latitude;
+    let longitude;
+
+    //get position, update every 30 seconds
+    if (navigator.geolocation)
+    {
+        navigator.geolocation.getCurrentPosition(showPosition);
+        setTimeout(getLocation, 30000);
+    } 
+    else 
+    { 
+        alert("Geolocation is not supported by this browser.");
+    } 
+
+    //example URL: https://codecyprus.org/th/api/location?session=ag9nfmNvZGVjeXBydXNvcmdyFAsSB1Nlc3Npb24YgICAoMa0gQoM&latitude=34.683646&longitude=33.055391
+    const urlParams = new URLSearchParams(window.location.search);
+
+    let getLocationURL = location_api + "?session=" + urlParams.get('sessionid') + "&latitude=" + latitude + "&longitude=" + longitude;
+    fetch(getLocationURL)
+        .then(response =>response.json())
+        .then(JSONrepsonse5 =>
+        {
+            if(JSONrepsonse5.status == "OK")
+            {
+                //code
+                console.log(JSONrepsonse5.message);
+            }
+            else
+            {
+                //error message
+                window.alert(JSONrepsonse5.errorMessages);
+                console.log("ERROR: No OK response");
+            }
+
+        }
+        );
+
+}
+
+//showing the postition of the user
+function showPosition(position) 
+{
+  //showing the location of the user on the console for debugging issues
+  console.log("Latitude: " + position.coords.latitude + ", Longitude: " + position.coords.longitude);
+  latitude = position.coords.latitude;
+  longitude = position.coords.longitude;
 }
