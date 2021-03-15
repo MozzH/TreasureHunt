@@ -40,9 +40,11 @@ function getCookie(cookieName)
 
 function checkCookie(cookieName)
 {
-  if (getCookie(cookieName) == "")
+  var username=getCookie(cookieName);
+  if (username == "")
   {
     return false;
+    user = prompt("Please enter your name:", "");
   }
   else
   {
@@ -59,5 +61,6 @@ function deleteCookie(cookieName)
   date.setTime(time);
 
   //find a way to delete stuff
+  document.cookieName = "cookieName=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 
 }
