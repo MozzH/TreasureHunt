@@ -168,6 +168,7 @@ function getQuestion()
                     console.log("OK response");
                     questionBox = document.getElementById('questionBox');
                     answerBox = document.getElementById('answerBox');
+                    skipBox = document.getElementById('skipBox');
 
                     //check for location
                     if (JSONresponse3.requiresLocation == true)
@@ -183,7 +184,6 @@ function getQuestion()
 
 
                     let questionType = JSONresponse3.questionType;
-                    let skip = JSONresponse3.canBeSkipped;
 
                     switch(questionType)
                     {
@@ -275,7 +275,6 @@ function getQuestion()
                             //submit button in form
                             let intSubmit = document.createElement('input');
                             intSubmit.type = "submit";
-                            //event listener
 
                             //append everything
                             intAnswer.appendChild(intTextBox);
@@ -341,11 +340,24 @@ function getQuestion()
                     }
                     //END OF SWITCH/CASE
 
-                    //place skip button
-                    if (skip == true)
+                    //skip button
+                    let skipButton = document.createElement('button');
+                    skipButton.innerText = "skip";
+                    skipButton.id = "skipButton";
+
+                    console.log(JSONresponse3.canBeSkipped);
+
+                    if (JSONresponse3.canBeSkipped == true)
                     {
-                        //create button somewhere
+                        skipButton.addEventListener("click", skipAnswer);
                     }
+                    else
+                    {
+                        document.getElementByID("skipButton").disabled = true;
+                    }
+
+                    skipBox.appendChild(skipButton);
+
 
                     //append everything!
 
@@ -419,6 +431,27 @@ function sendAnswer(event)   //call with EventListener('click') in getQuestion()
 
 function skipAnswer()   //call with onclick=""?
 {
+    //example URL: https://codecyprus.org/th/api/skip?session=ag9nfmNvZGVjeXBydXNvcmdyFAsSB1Nlc3Npb24YgICAoMa0gQoM
+    const urlParams = new URLSearchParams(window.location.search);
+
+    let skipAnswerURL = skip_api + "?session=" + urlParams.get('sessionid');
+    fetch(skipAnswerURL)
+    .then(response => response.json())
+    .then(JSONresponse6 =>
+        {
+            if(JSONresponse6.status == "OK")
+            {
+                //code
+                window.location.reload(true);
+            }
+            else
+            {
+                //error message
+                window.alert(JSONresponse6.errorMessages);
+                console.log("ERROR: No OK response");
+            }
+        }
+        );
 
 }
 
