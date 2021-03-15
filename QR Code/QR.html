@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>QR Code Reader</title>
+    <script src="instascan.min.js"></script>
+
+</head>
+<body>
+      <video id="preview"></video>
+ <script>
+     //enabling function
+      var opts = {
+      continuous: true,
+      video: document.getElementById('preview'),
+      mirror: true,
+      captureImage: false,
+      backgroundScan: true,
+      refractoryPeriod: 5000,
+      scanPeriod: 1
+      };
+
+
+      var scanner = new Instascan.Scanner(opts);
+
+      Instascan.Camera.getCameras().then(function (cameras) {
+          if (cameras.length > 0) {
+              scanner.start(cameras[0]);
+          } else {
+              console.error('No cameras found.');
+              alert("No cameras found.");
+          }
+      }).catch(function (e) {
+          console.error("Some errors:" + e);
+      });
+
+
+      scanner.addListener('scan', function (content) {
+          console.log(content);
+          document.getElementById("content").innerHTML = content;
+      });
+
+ </script>
+</body>
+</html>
