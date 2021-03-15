@@ -204,6 +204,11 @@ button
     top: 0;
 }
 
+#skipBox
+{
+    margin-top: 5%;
+}
+
 #teamPic
 {
     margin-left: auto;
