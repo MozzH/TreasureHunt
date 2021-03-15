@@ -189,11 +189,15 @@ function getQuestion()
                             //button true
                             let buttonTrue = document.createElement('button');
                             buttonTrue.innerText = "True";
+                            buttonTrue.value = true;
+                            buttonTrue.id = "answerButton";
                             buttonTrue.addEventListener("click", sendAnswer);
                             
                             //button false
                             let buttonFalse = document.createElement('button');
                             buttonFalse.innerText = "False";
+                            buttonFalse.value = false;
+                            buttonFalse.id = "answerButton";
                             buttonFalse.addEventListener("click", sendAnswer);
     
                             //append
@@ -212,21 +216,29 @@ function getQuestion()
                             //button A
                             let choiceA = document.createElement('button');
                             choiceA.innerText = "A";
+                            choiceA.value = "A";
+                            choiceA.id = "answerButton";
                             choiceA.addEventListener("click", sendAnswer);
 
                             //button B
                             let choiceB = document.createElement('button');
                             choiceB.innerText = "B";
+                            choiceB.value = "B";
+                            choiceB.id = "answerButton";
                             choiceB.addEventListener("click", sendAnswer);
 
                             //button C
                             let choiceC = document.createElement('button');
                             choiceC.innerText = "C";
+                            choiceC.value = "C";
+                            choiceC.id = "answerButton";
                             choiceC.addEventListener("click", sendAnswer);
 
                             //button D
                             let choiceD = document.createElement('button');
                             choiceD.innerText = "D";
+                            choiceC.value = "D";
+                            choiceD.id = "answerButton";
                             choiceC.addEventListener("click", sendAnswer);
 
                             //append everything
@@ -305,13 +317,18 @@ function getQuestion()
                             //create textBox in form
                             let textTextBox = document.createElement('input');
                             textTextBox.id = "answerTextBox";
-                            textTextBox.type = "type";
+                            textTextBox.type = "text";
 
                             //submit button in form
                             let textSubmit = document.createElement('input');
-                            textSubmit.type = "button";
+                            textSubmit.type = "submit";
+                            textSubmit.value = "submit";
 
                             //append everything
+                            textAnswer.appendChild(textTextBox);
+                            textAnswer.appendChild(textSubmit);
+                            answerBox.appendChild(textAnswer);
+
                             break;
                     }
                     //END OF SWITCH/CASE
@@ -354,14 +371,61 @@ function sendAnswer(event)   //call with EventListener('click') in getQuestion()
         let textBoxInput = document.getElementById("answerTextBox").value;
         answer = textBoxInput;
    }
+   else
+   {
+        //make buttons transfer answer value too
+
+        /*
+        *
+        *get element
+        *get innerText/value from element 
+        *answer = value
+        * 
+        */
+        let buttonInput = document.getElementById("answerButton").value;
+        answer = buttonInput;
+        
+        console.log("Answer: " + answer);
+   }
+   
 
     //example url: https://codecyprus.org/th/api/answer?session=ag9nfmNvZGVjeXBydXNvcmdyFAsSB1Nlc3Npb24YgICAoMa0gQoM&answer=42
     const urlParams = new URLSearchParams(window.location.search);
 
-    let sendAnswerURL = answer_api + "?session=" + urlParams.get(sessionid) + "&answer=" + answer;
-    //let sendAnswerURL = answer_api + "?session=" + sessionid + "&answer=" + answer;
+    let sendAnswerURL = answer_api + "?session=" + urlParams.get('sessionid') + "&answer=" + answer;
 
-    console.log(sendAnswerURL);
+    fetch(sendAnswerURL)
+    .then(response => response.json())
+    .then(JSONresponse4 =>
+        {
+            console.log(sendAnswerURL);
+            console.log(JSONresponse4);
+
+            if(JSONresponse4.status == "OK")
+            {
+                console.log("OK response");
+                if(JSONresponse4.correct == true)
+                {
+                    console.log("correct answer");
+
+                    //reload page
+                    window.location.reload(true);
+                }
+                else if (JSONresponse4.correct == false)
+                {
+                    console.log("false answer");
+                }
+            }
+            else
+            {
+                window.alert(JSONresponse4.errorMessages);
+                console.log("ERROR: No OK response.");
+            }
+        }
+        );
+    
+
+    
 
 }
 
