@@ -190,14 +190,14 @@ function getQuestion()
                             let buttonTrue = document.createElement('button');
                             buttonTrue.innerText = "True";
                             buttonTrue.value = true;
-                            buttonTrue.id = "answerButton";
+                            buttonTrue.id = "buttonTrue";
                             buttonTrue.addEventListener("click", sendAnswer);
                             
                             //button false
                             let buttonFalse = document.createElement('button');
                             buttonFalse.innerText = "False";
                             buttonFalse.value = false;
-                            buttonFalse.id = "answerButton";
+                            buttonFalse.id = "buttonFalse";
                             buttonFalse.addEventListener("click", sendAnswer);
     
                             //append
@@ -217,29 +217,29 @@ function getQuestion()
                             let choiceA = document.createElement('button');
                             choiceA.innerText = "A";
                             choiceA.value = "A";
-                            choiceA.id = "answerButton";
+                            choiceA.id = "choiceA";
                             choiceA.addEventListener("click", sendAnswer);
 
                             //button B
                             let choiceB = document.createElement('button');
                             choiceB.innerText = "B";
                             choiceB.value = "B";
-                            choiceB.id = "answerButton";
+                            choiceB.id = "choiceB";
                             choiceB.addEventListener("click", sendAnswer);
 
                             //button C
                             let choiceC = document.createElement('button');
                             choiceC.innerText = "C";
                             choiceC.value = "C";
-                            choiceC.id = "answerButton";
+                            choiceC.id = "choiceC";
                             choiceC.addEventListener("click", sendAnswer);
 
                             //button D
                             let choiceD = document.createElement('button');
                             choiceD.innerText = "D";
-                            choiceC.value = "D";
-                            choiceD.id = "answerButton";
-                            choiceC.addEventListener("click", sendAnswer);
+                            choiceD.value = "D";
+                            choiceD.id = "choiceD";
+                            choiceD.addEventListener("click", sendAnswer);
 
                             //append everything
                             answerBox.appendChild(choiceA);
@@ -354,39 +354,21 @@ function getQuestion()
 function sendAnswer(event)   //call with EventListener('click') in getQuestion()
 {
 
-    /*
-    *
-    *If event = undefined
-    *   {
-    *   search for textBox (with id)
-    *   get value from textBox
-    *   set answer to value of textbox
-    *   }
-    * 
-    */
-   let answer;
+    let answer;
 
-   if (event == undefined)
-   {
+    //get values from elements via Event Listener
+    if (event == undefined)
+    {
         let textBoxInput = document.getElementById("answerTextBox").value;
         answer = textBoxInput;
-   }
-   else
-   {
-        //make buttons transfer answer value too
-
-        /*
-        *
-        *get element
-        *get innerText/value from element 
-        *answer = value
-        * 
-        */
-        let buttonInput = document.getElementById("answerButton").value;
+    }
+    else
+    {
+        let buttonInput = document.getElementById(event.target.id).value;
         answer = buttonInput;
-        
+
         console.log("Answer: " + answer);
-   }
+    }
    
 
     //example url: https://codecyprus.org/th/api/answer?session=ag9nfmNvZGVjeXBydXNvcmdyFAsSB1Nlc3Npb24YgICAoMa0gQoM&answer=42
