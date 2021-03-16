@@ -197,6 +197,25 @@ button
     padding-top: 1%;
 }
 
+#hunt-list button
+{
+    background-color: #263d5c;
+    color: #f2f2f2;
+}
+
+#hunt-list li
+{
+    margin-bottom: 1%;
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: 5%;
+
+    padding-bottom: 5%;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 1%;
+}
+
 #navbar
 {
     border-bottom: 2px solid #263d5c;
@@ -213,6 +232,12 @@ button
 #skipBox
 {
     margin-top: 5%;
+}
+
+#skipBox button
+{
+    background-color: #f2f2f2;
+    color: #263d5c;
 }
 
 #teamPic
