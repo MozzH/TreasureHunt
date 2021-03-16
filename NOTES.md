@@ -217,4 +217,33 @@
     * API Work & Social media engagement
       * Will work on the API & increase the engagement in social media
 
+#  Seventh meeting - March 15th, 2021
 
+* **Time:**
+  * *5:00 PM EET*
+* **Location:**
+  * *Online; Microsoft Teams*
+
+* **Participants:**
+  * *Al-Ghalibi Mohammed*
+  * *Lefteris Tziambouris*
+  * *Robin K. Schulz*
+
+#### Expectations:
+ 
+ - Further development of the API    
+ - Assign further tasks
+ - Start working on the testing
+
+#### Outcomes: 
+
+
+  * **Lefteris Tziambouris** 
+    * Cookies 
+      * Will work on cookies
+  * **Robin K. Schulz:**
+    * API Work & optimization
+      * Will work on the API
+  * **Al-Ghalibi Mohammed:**
+    * QR Code development & testing & Further social media engagement
+      * Will develop the QR code functionality, create a testing page & increase the engagement on social media.
