@@ -162,6 +162,12 @@ button
     width: 75%;
 }
 
+#answerBox button
+{
+    background-color: #f2f2f2;
+    color: #263d5c;
+}
+
 #huntBox
 {
     background-color:#263d5c;
