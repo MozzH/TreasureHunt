@@ -498,7 +498,7 @@ function getLocation()
         .then(response =>response.json())
         .then(JSONrepsonse5 =>
         {
-            if(JSONrepsonse5.status == "OK")
+            if(JSONrepsonse5.status === "OK")
             {
                 //code
                 console.log(JSONrepsonse5.message);
