@@ -472,6 +472,7 @@ function skipAnswer()   //call with onclick=""?
 
 
 //GEOLOCATION FUNCTIONS
+
 function getLocation()
 {
 
@@ -520,6 +521,6 @@ function showPosition(position)
 {
     //showing the location of the user on the console for debugging issues
     console.log("Latitude: " + position.coords.latitude + ", Longitude: " + position.coords.longitude);
-    latitude = position.coords.latitude;
-    longitude = position.coords.longitude;
+   let latitude = position.coords.latitude;
+   let longitude = position.coords.longitude;
 }
