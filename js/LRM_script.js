@@ -478,6 +478,7 @@ function getLocation()
     if (navigator.geolocation)
     {
         navigator.geolocation.getCurrentPosition(showPosition);
+        console.log("geolocation accepted");
         setTimeout(getLocation, 30000);
     } 
     else 
@@ -485,10 +486,13 @@ function getLocation()
         alert("Geolocation is not supported by this browser.");
     } 
 
+    console.log("Latitude: " + latitude + ", Longitude: " + longitude);
+
     //example URL: https://codecyprus.org/th/api/location?session=ag9nfmNvZGVjeXBydXNvcmdyFAsSB1Nlc3Npb24YgICAoMa0gQoM&latitude=34.683646&longitude=33.055391
     const urlParams = new URLSearchParams(window.location.search);
 
     let getLocationURL = location_api + "?session=" + urlParams.get('sessionid') + "&latitude=" + latitude + "&longitude=" + longitude;
+    console.log(getLocationURL);
     fetch(getLocationURL)
         .then(response =>response.json())
         .then(JSONrepsonse5 =>
@@ -513,8 +517,8 @@ function getLocation()
 //showing the postition of the user
 function showPosition(position) 
 {
-  //showing the location of the user on the console for debugging issues
-  console.log("Latitude: " + position.coords.latitude + ", Longitude: " + position.coords.longitude);
-  latitude = position.coords.latitude;
-  longitude = position.coords.longitude;
+    //showing the location of the user on the console for debugging issues
+    console.log("Latitude: " + position.coords.latitude + ", Longitude: " + position.coords.longitude);
+    latitude = position.coords.latitude;
+    longitude = position.coords.longitude;
 }
