@@ -162,6 +162,16 @@ button
     width: 75%;
 }
 
+#answerBox
+{
+    margin: 0 auto;
+}
+
+#answerBox form
+{
+
+}
+
 #answerBox button
 {
     background-color: #f2f2f2;
