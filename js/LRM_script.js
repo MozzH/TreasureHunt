@@ -470,9 +470,9 @@ function skipAnswer()   //call with onclick=""?
 
 //GEOLOCATION FUNCTIONS
 function getLocation()
-{
-    let latitude=position.coords.latitude;;
-    let longitude= position.coords.longitude;;
+
+    let latitude=position.coords.latitude;
+    let longitude= position.coords.longitude;
 
     //get position, update every 30 seconds
     if (navigator.geolocation)
