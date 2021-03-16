@@ -470,7 +470,7 @@ function skipAnswer()   //call with onclick=""?
 
 //GEOLOCATION FUNCTIONS
 function getLocation()
-
+{
     let latitude=position.coords.latitude;
     let longitude= position.coords.longitude;
 
