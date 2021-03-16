@@ -469,7 +469,12 @@ function skipAnswer()   //call with onclick=""?
 
 
 //GEOLOCATION FUNCTIONS
-function getLocation()
+function Position() {
+    navigator.geolocation.getCurrentPosition(getLocation);
+}
+
+
+function getLocation(position)
 {
     let latitude=position.coords.latitude;
     let longitude= position.coords.longitude;
