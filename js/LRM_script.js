@@ -20,6 +20,9 @@ let playername;
 //let sessionid;
 let huntList; //html id: hunt-list
 
+let latitude;
+let longitude;
+
 //check for empty answer field
 function checkField()
 {
@@ -202,7 +205,7 @@ function getQuestion()
                         //BOOLEAN QUESTIONS
                         case "BOOLEAN":
                             
-                            console.log("type = " + questionType)
+                            console.log("type = " + questionType);
 
                             //two buttons w/ true and false
                             
@@ -229,7 +232,7 @@ function getQuestion()
                         //MULTIPLE CHOICE QUESTIONS
                         case "MCQ":
 
-                            console.log("type = " + questionType)
+                            console.log("type = " + questionType);
                             
                             //create buttons
 
@@ -272,7 +275,7 @@ function getQuestion()
 
                         //INTEGER QUESTIONS
                         case "INTEGER":
-                            console.log("type = " + questionType)
+                            console.log("type = " + questionType);
                             //code for integer questions
 
                             //create form
@@ -298,7 +301,7 @@ function getQuestion()
 
                         //NUMERIC QUESTIONS
                         case "NUMERIC":
-                            console.log("type = " + questionType)
+                            console.log("type = " + questionType);
                             //code for numeric questions
 
                             //create form
@@ -326,7 +329,7 @@ function getQuestion()
                         //TEXT QUESTIONS
                         case "TEXT":
 
-                            console.log("type = " + questionType)
+                            console.log("type = " + questionType);
                             //code for text questions
 
                             //create form
@@ -469,15 +472,9 @@ function skipAnswer()   //call with onclick=""?
 
 
 //GEOLOCATION FUNCTIONS
-function Position() {
-    navigator.geolocation.getCurrentPosition(getLocation);
-}
 
-
-function getLocation(position)
+function getLocation()
 {
-    let latitude=position.coords.latitude;
-    let longitude= position.coords.longitude;
 
     //get position, update every 30 seconds
     if (navigator.geolocation)
