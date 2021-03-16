@@ -10,7 +10,7 @@ const question_api = url_api + "/question";
 const answer_api = url_api + "/answer";
 const skip_api = url_api + "/skip";
 
-const location_api = url_api + "/location"
+const location_api = url_api + "/location";
 
 const score_api = url_api + "/score";
 const leaderboard = url_api + "/leaderboard";
@@ -19,6 +19,9 @@ const leaderboard = url_api + "/leaderboard";
 let playername;
 //let sessionid;
 let huntList; //html id: hunt-list
+
+let latitude;
+let longitude;
 
 //check for empty answer field
 function checkField()
@@ -50,7 +53,7 @@ function endSession()
 //GAME FUNCTIONS
 function getHunt()      //get List of Treasure Hunts
 {
-    console.log("getHunt called")
+    console.log("getHunt called");
     fetch(list_api)
         .then(response => response.json())  //https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
         .then(JSONresponse =>
@@ -202,7 +205,7 @@ function getQuestion()
                         //BOOLEAN QUESTIONS
                         case "BOOLEAN":
                             
-                            console.log("type = " + questionType)
+                            console.log("type = " + questionType);
 
                             //two buttons w/ true and false
                             
@@ -229,7 +232,7 @@ function getQuestion()
                         //MULTIPLE CHOICE QUESTIONS
                         case "MCQ":
 
-                            console.log("type = " + questionType)
+                            console.log("type = " + questionType);
                             
                             //create buttons
 
@@ -272,7 +275,7 @@ function getQuestion()
 
                         //INTEGER QUESTIONS
                         case "INTEGER":
-                            console.log("type = " + questionType)
+                            console.log("type = " + questionType);
                             //code for integer questions
 
                             //create form
@@ -298,7 +301,7 @@ function getQuestion()
 
                         //NUMERIC QUESTIONS
                         case "NUMERIC":
-                            console.log("type = " + questionType)
+                            console.log("type = " + questionType);
                             //code for numeric questions
 
                             //create form
@@ -326,7 +329,7 @@ function getQuestion()
                         //TEXT QUESTIONS
                         case "TEXT":
 
-                            console.log("type = " + questionType)
+                            console.log("type = " + questionType);
                             //code for text questions
 
                             //create form
@@ -471,8 +474,6 @@ function skipAnswer()   //call with onclick=""?
 //GEOLOCATION FUNCTIONS
 function getLocation()
 {
-    let latitude;
-    let longitude;
 
     //get position, update every 30 seconds
     if (navigator.geolocation)
