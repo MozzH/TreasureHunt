@@ -75,12 +75,24 @@ function getHunt()      //get List of Treasure Hunts
                         let THelementName = document.createElement('h3');
                         THelementName.innerText = treasureHunt.name;
 
+                        //details about hunt
+                        let THelementDetails = document.createElement('p');
+                        let treasureHuntStartDate = new Date (treasureHunt.startsOn);
+                        let treasureHuntEndDate = new Date (treasureHunt.endsOn);
+                        let tresureHuntDuration = (treasureHunt.maxDuration / 1000 / 60);
+
+                        THelementDetails.innerHTML = "<b>Description:</b> " + treasureHunt.description + '<br>' 
+                                                    + "<b>Starts on:</b> " + treasureHuntStartDate.toLocaleDateString('en-US') + '<br>'
+                                                    + "<b>Ends on:</b> " + treasureHuntEndDate.toLocaleDateString('en-US') + '<br>'
+                                                    + "<b>Duration:</b> around " + tresureHuntDuration + " minutes";
+
                         let THelementButton = document.createElement('button');
                         THelementButton.id = treasureHunt.uuid;
                         THelementButton.innerText = "Play";
                         THelementButton.addEventListener("click", startGame);
 
                         THelement.appendChild(THelementName);
+                        THelement.appendChild(THelementDetails);
                         THelement.appendChild(THelementButton);
                         huntList.appendChild(THelement);    //puts li inside of ul; instead of huntList.innerHTML += "<li> </li>"
                     }
