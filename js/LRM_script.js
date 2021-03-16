@@ -221,8 +221,8 @@ function getQuestion()
                             buttonFalse.addEventListener("click", sendAnswer);
     
                             //append
-                            questionBox.appendChild(buttonTrue);
-                            questionBox.appendChild(buttonFalse);    
+                            answerBox.appendChild(buttonTrue);
+                            answerBox.appendChild(buttonFalse);    
                             break;
 
 
