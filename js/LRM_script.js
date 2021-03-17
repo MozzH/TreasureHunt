@@ -25,7 +25,7 @@ const skip_api = url_api + "/skip";
 const location_api = url_api + "/location";
 
 const score_api = url_api + "/score";
-const leaderboard = url_api + "/leaderboard";
+const leaderboard_api = url_api + "/leaderboard";
 
 //VARIABLES
 //general game variables
@@ -110,7 +110,7 @@ function getHunt()      //get List of Treasure Hunts
                 {
                     //error message
                     console.log("getHunt(): ERROR");
-                    window.alert("There was an error. Please refresh or try again later.")
+                    window.alert("There was an error. Please refresh or try again later.");
                 }
                 
             }
@@ -184,12 +184,23 @@ function getQuestion()
         .then(response => response.json())
         .then(JSONresponse3 =>
             {
+                //check for more questions
+                if (JSONresponse3.currentQuestionIndex == JSONresponse3.numOfQuestions)
+                {
+                    const urlParams = new URLSearchParams(window.location.search);
+                    let leaderboardLimit = 10;
+                    window.open("leaderboard.html?session=" + urlParams.get('sessionid') + "&sorted&limit=" + leaderboardLimit);
+                }
+
                 if(JSONresponse3.status == "OK")
                 {
                     console.log("getQuestion(): OK");
+                    console.log(JSONresponse3.numOfQuestions);
+                    console.log(JSONresponse3.currentQuestionIndex);
                     questionBox = document.getElementById('questionBox');
                     answerBox = document.getElementById('answerBox');
                     skipBox = document.getElementById('skipBox');
+
 
                     //check for location
                     if (JSONresponse3.requiresLocation == true)
@@ -442,6 +453,7 @@ function sendAnswer(event)   //call with EventListener('click') in getQuestion()
             {
                 console.log("sendAnswer(): ERROR");
                 window.alert(JSONresponse4.errorMessages);
+                //go back to choice
             }
         }
         );
@@ -507,6 +519,32 @@ function getScore()
         }
         );
 
+}
+
+function getLeaderboard()
+{
+    //example URL: https://codecyprus.org/th/api/leaderboard?session=ag9nfmNvZGVjeXBydXNvcmdyFAsSB1Nlc3Npb24YgICAoMa0gQoM&sorted&limit=10
+    const urlParams = new URLSearchParams(window.location.search);
+
+    let leaderboardLimit = 10;
+    let getLeaderboardURL = leaderboard_api + "?session=" + urlParams.get('sessionid') + "&sorted&limit=" + leaderboardLimit;
+
+    fetch (getLeaderboardURL)
+        .then(response => response.json())
+        .then(JSONresponse8 =>
+            {
+                if(JSONresponse8.status == "OK")
+                {
+                    console.log("getLeaderboard(): OK");
+                }
+                else
+                {
+                    console.log("getLeaderboard(): ERROR");
+                    window.alert(JSONresponse8.errorMEssages);
+                }
+
+            }
+            );
 }
 
 
