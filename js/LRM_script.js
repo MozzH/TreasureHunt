@@ -499,6 +499,7 @@ function showPosition(position)
     console.log("Latitude: " + position.coords.latitude + ", Longitude: " + position.coords.longitude);
     latitude = position.coords.latitude;
     longitude = position.coords.longitude;
+    
 
     //example URL: https://codecyprus.org/th/api/location?session=ag9nfmNvZGVjeXBydXNvcmdyFAsSB1Nlc3Npb24YgICAoMa0gQoM&latitude=34.683646&longitude=33.055391
     const urlParams = new URLSearchParams(window.location.search);
