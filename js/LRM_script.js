@@ -15,27 +15,20 @@ const location_api = url_api + "/location";
 const score_api = url_api + "/score";
 const leaderboard = url_api + "/leaderboard";
 
-//variables
+//VARIABLES
+//general game variables
 let playername;
+let score;
 //let sessionid;
+
+//element variables
 let huntList; //html id: hunt-list
 
+//position variables
 let latitude;
 let longitude;
 
-//check for empty answer field
-function checkField()
-{
-    //if field empty, return false; otherwise true
-    if (document.getElementById('').value == "")
-    {
-        return false;
-    }
-    else
-    {
-        return true;
-    }
-}
+
 //COOKIE FUNCTIONS  >>replace cookies.js later<<
 
 
@@ -424,7 +417,6 @@ function sendAnswer(event)   //call with EventListener('click') in getQuestion()
                 if(JSONresponse4.correct == true)
                 {
                     console.log("correct answer");
-
                     //reload page
                     window.location.reload(true);
                 }
