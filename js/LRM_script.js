@@ -187,9 +187,8 @@ function getQuestion()
                 //check for more questions
                 if (JSONresponse3.currentQuestionIndex == JSONresponse3.numOfQuestions)
                 {
-                    const urlParams = new URLSearchParams(window.location.search);
-                    let leaderboardLimit = 10;
-                    window.open("leaderboard.html?session=" + urlParams.get('sessionid') + "&sorted&limit=" + leaderboardLimit);
+                    let sessionid = urlParams.get('sessionid');
+                    window.open("leaderboard.html?sessionid=" + sessionid, '_self', true);
                 }
 
                 if(JSONresponse3.status == "OK")
@@ -213,7 +212,6 @@ function getQuestion()
                     questionParagraph.innerHTML = JSONresponse3.questionText;
                     //append questionParagraph
                     questionBox.appendChild(questionParagraph);
-
 
                     let questionType = JSONresponse3.questionType;
 
@@ -536,6 +534,12 @@ function getLeaderboard()
                 if(JSONresponse8.status == "OK")
                 {
                     console.log("getLeaderboard(): OK");
+
+                    //create table head once
+
+                    //create table data with for loop
+
+                    //append everything!
                 }
                 else
                 {
