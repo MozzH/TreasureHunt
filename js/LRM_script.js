@@ -32,6 +32,7 @@ const leaderboard_api = url_api + "/leaderboard";
 let playername;
 let score;
 //let sessionid;
+let leaderboardLimit = 10;
 
 //element variables
 let huntList;           //app.html#hunt-list
@@ -554,7 +555,6 @@ function getLeaderboard()
     //example URL: https://codecyprus.org/th/api/leaderboard?session=ag9nfmNvZGVjeXBydXNvcmdyFAsSB1Nlc3Npb24YgICAoMa0gQoM&sorted&limit=10
     const urlParams = new URLSearchParams(window.location.search);
 
-    let leaderboardLimit = 10;
     let getLeaderboardURL = leaderboard_api + "?session=" + urlParams.get('sessionid') + "&sorted&limit=" + leaderboardLimit;
 
     fetch (getLeaderboardURL)
@@ -564,27 +564,28 @@ function getLeaderboard()
                 if(JSONresponse8.status == "OK")
                 {
                     console.log("getLeaderboard(): OK");
+                    let leaderboardTH;
 
                     leaderboardTable = document.getElementById('leaderboard-table');
                     
                     //create table data with for loop
-                    for(let i = 0;  i < (JSONresponse8.limit); i++)
+                    for(leaderboardTH of JSONresponse8.leaderboard)
                     {
                         let leaderboardTableRowData = document.createElement('tr');
 
                         let leaderboardDataPlayername = document.createElement('td');
-                        leaderboardDataPlayername.innerText = JSONresponse8.leaderboard.player;
+                        leaderboardDataPlayername.innerText = leaderboardTH.player;
     
                         let leaderboardDataScore = document.createElement('td');
-                        leaderboardDataScore.innerText = JSONresponse8.leaderboard.score;
+                        leaderboardDataScore.innerText = leaderboardTH.score;
     
                         let leaderboardDataTime = document.createElement('td');
-                        leaderboardDataTime.innerText = JSONresponse8.leaderboard.completionTime;
-                        
-                        leaderboardTableRowData.appendChild(leaderboardDataTime);
-                        leaderboardTableRowData.appendChild(leaderboardDataScore);
-                        leaderboardTableRowData.appendChild(leaderboardDataPlayername);
+                        let leaderboardDateString = new Date (leaderboardTH.completionTime);
+                        leaderboardDataTime.innerText = leaderboardDateString.toLocaleDateString('en-US');
 
+                        leaderboardTableRowData.appendChild(leaderboardDataPlayername);
+                        leaderboardTableRowData.appendChild(leaderboardDataScore);
+                        leaderboardTableRowData.appendChild(leaderboardDataTime);
                         leaderboardTable.appendChild(leaderboardTableRowData);
                     }
                 }
