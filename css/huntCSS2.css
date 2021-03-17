@@ -22,7 +22,11 @@ button
     padding-left: 8px;
     padding-right: 8px;
     padding-top: 5px;
-    width: 25%
+}
+
+.button-25
+{
+    width: 25%;
 }
 
 .button-blue
