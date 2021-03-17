@@ -446,27 +446,34 @@ function sendAnswer(event)   //call with EventListener('click') in getQuestion()
 
 function skipAnswer()   //call with onclick=""?
 {
-    //example URL: https://codecyprus.org/th/api/skip?session=ag9nfmNvZGVjeXBydXNvcmdyFAsSB1Nlc3Npb24YgICAoMa0gQoM
-    const urlParams = new URLSearchParams(window.location.search);
+    if(confirm("Do you really want to skip?"))
+    {
+        //example URL: https://codecyprus.org/th/api/skip?session=ag9nfmNvZGVjeXBydXNvcmdyFAsSB1Nlc3Npb24YgICAoMa0gQoM
+        const urlParams = new URLSearchParams(window.location.search);
 
-    let skipAnswerURL = skip_api + "?session=" + urlParams.get('sessionid');
-    fetch(skipAnswerURL)
-    .then(response => response.json())
-    .then(JSONresponse6 =>
-        {
-            if(JSONresponse6.status == "OK")
+        let skipAnswerURL = skip_api + "?session=" + urlParams.get('sessionid');
+        fetch(skipAnswerURL)
+        .then(response => response.json())
+        .then(JSONresponse6 =>
             {
-                //code
-                window.location.reload(true);
+                if(JSONresponse6.status == "OK")
+                {
+                    //code
+                    window.location.reload(true);
+                }
+                else
+                {
+                    //error message
+                    window.alert(JSONresponse6.errorMessages);
+                    console.log("ERROR: No OK response");
+                }
             }
-            else
-            {
-                //error message
-                window.alert(JSONresponse6.errorMessages);
-                console.log("ERROR: No OK response");
-            }
-        }
-        );
+            );
+    }
+    else
+    {
+        
+    }
 
 }
 
@@ -499,7 +506,7 @@ function showPosition(position)
     console.log("Latitude: " + position.coords.latitude + ", Longitude: " + position.coords.longitude);
     latitude = position.coords.latitude;
     longitude = position.coords.longitude;
-    
+
 
     //example URL: https://codecyprus.org/th/api/location?session=ag9nfmNvZGVjeXBydXNvcmdyFAsSB1Nlc3Npb24YgICAoMa0gQoM&latitude=34.683646&longitude=33.055391
     const urlParams = new URLSearchParams(window.location.search);
