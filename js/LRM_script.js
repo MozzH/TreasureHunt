@@ -574,6 +574,7 @@ function getLeaderboard()
                 {
                     console.log("getLeaderboard(): OK");
                     let leaderboardTH;
+                    let leaderboardPosition = 0;
 
                     leaderboardTable = document.getElementById('leaderboard-table');
                     
@@ -581,6 +582,10 @@ function getLeaderboard()
                     for(leaderboardTH of JSONresponse8.leaderboard)
                     {
                         let leaderboardTableRowData = document.createElement('tr');
+
+                        let leaderboardDataPos = document.createElement('td');
+                        leaderboardPosition++;
+                        leaderboardDataPos.innerText = leaderboardPosition;
 
                         let leaderboardDataPlayername = document.createElement('td');
                         leaderboardDataPlayername.innerText = leaderboardTH.player;
@@ -592,6 +597,7 @@ function getLeaderboard()
                         let leaderboardDateString = new Date (leaderboardTH.completionTime);
                         leaderboardDataTime.innerText = leaderboardDateString.toLocaleDateString('en-US');
 
+                        leaderboardTableRowData.appendChild(leaderboardDataPos);
                         leaderboardTableRowData.appendChild(leaderboardDataPlayername);
                         leaderboardTableRowData.appendChild(leaderboardDataScore);
                         leaderboardTableRowData.appendChild(leaderboardDataTime);
