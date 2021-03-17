@@ -490,6 +490,16 @@ function getLocation()
 
     console.log("Latitude: " + latitude + ", Longitude: " + longitude);
 
+}
+
+//showing the postition of the user
+function showPosition(position)
+{
+    //showing the location of the user on the console for debugging issues
+    console.log("Latitude: " + position.coords.latitude + ", Longitude: " + position.coords.longitude);
+    latitude = position.coords.latitude;
+    longitude = position.coords.longitude;
+
     //example URL: https://codecyprus.org/th/api/location?session=ag9nfmNvZGVjeXBydXNvcmdyFAsSB1Nlc3Npb24YgICAoMa0gQoM&latitude=34.683646&longitude=33.055391
     const urlParams = new URLSearchParams(window.location.search);
 
@@ -510,17 +520,6 @@ function getLocation()
                 window.alert(JSONrepsonse5.errorMessages);
                 console.log("ERROR: No OK response");
             }
-
         }
         );
-
-}
-
-//showing the postition of the user
-function showPosition(position) 
-{
-    //showing the location of the user on the console for debugging issues
-    console.log("Latitude: " + position.coords.latitude + ", Longitude: " + position.coords.longitude);
-   let latitude = position.coords.latitude;
-   let longitude = position.coords.longitude;
 }
