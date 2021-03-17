@@ -34,7 +34,8 @@ let score;
 //let sessionid;
 
 //element variables
-let huntList; //html id: hunt-list
+let huntList;           //app.html#hunt-list
+let leaderboardTable;   //leaderboard.html#leaderboard-table
 
 //position variables
 let latitude;
@@ -535,11 +536,28 @@ function getLeaderboard()
                 {
                     console.log("getLeaderboard(): OK");
 
-                    //create table head once
-
+                    leaderboardTable = document.getElementById('leaderboard-table');
+                    
                     //create table data with for loop
+                    for(let i = 0;  i < (JSONresponse8.limit); i++)
+                    {
+                        let leaderboardTableRowData = document.createElement('tr');
 
-                    //append everything!
+                        let leaderboardDataPlayername = document.createElement('td');
+                        leaderboardDataPlayername.innerText = JSONresponse8.player;
+    
+                        let leaderboardDataScore = document.createElement('td');
+                        leaderboardDataScore.innerText = JSONresponse8.score;
+    
+                        let leaderboardDataTime = document.createElement('td');
+                        leaderboardDataTime.innerText = JSONresponse8.completionTime;
+                        
+                        leaderboardTableRowData.appendChild(leaderboardDataTime);
+                        leaderboardTableRowData.appendChild(leaderboardDataScore);
+                        leaderboardTableRowData.appendChild(leaderboardDataPlayername);
+
+                        leaderboardTable.appendChild(leaderboardTableRowData);
+                    }
                 }
                 else
                 {
@@ -555,7 +573,6 @@ function getLeaderboard()
 //GEOLOCATION FUNCTIONS
 function getLocation()
 {
-
     //get position, update every 30 seconds
     if (navigator.geolocation)
     {
