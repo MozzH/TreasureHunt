@@ -6,7 +6,16 @@ _____            _           _     _      _____  __  __
 | |   | | | (_) | |  __/ (__| |_  | |____| | \ \| |  | |
 |_|   |_|  \___/| |\___|\___|\__| |______|_|  \_\_|  |_|
                _/ |                                     
-              |__/                                      
+              |__/     
+A project by:
+- Robin K. Schulz
+- Lefteris Tziambouris
+- Mohammed Al-Ghalibi
+
+for CO1111 of the year 2020/2021
+at University of Central Lancanshire Cyprus
+
+LRM_script.js
 */
 
 
