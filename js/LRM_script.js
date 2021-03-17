@@ -573,13 +573,13 @@ function getLeaderboard()
                         let leaderboardTableRowData = document.createElement('tr');
 
                         let leaderboardDataPlayername = document.createElement('td');
-                        leaderboardDataPlayername.innerText = JSONresponse8.player;
+                        leaderboardDataPlayername.innerText = JSONresponse8.leaderboard.player;
     
                         let leaderboardDataScore = document.createElement('td');
-                        leaderboardDataScore.innerText = JSONresponse8.score;
+                        leaderboardDataScore.innerText = JSONresponse8.leaderboard.score;
     
                         let leaderboardDataTime = document.createElement('td');
-                        leaderboardDataTime.innerText = JSONresponse8.completionTime;
+                        leaderboardDataTime.innerText = JSONresponse8.leaderboard.completionTime;
                         
                         leaderboardTableRowData.appendChild(leaderboardDataTime);
                         leaderboardTableRowData.appendChild(leaderboardDataScore);
