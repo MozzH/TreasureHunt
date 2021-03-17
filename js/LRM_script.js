@@ -1,3 +1,15 @@
+/*
+_____           _           _     _      _____  __  __ 
+|  __ \         (_)         | |   | |    |  __ \|  \/  |
+| |__) | __ ___  _  ___  ___| |_  | |    | |__) | \  / |
+|  ___/ '__/ _ \| |/ _ \/ __| __| | |    |  _  /| |\/| |
+| |   | | | (_) | |  __/ (__| |_  | |____| | \ \| |  | |
+|_|   |_|  \___/| |\___|\___|\__| |______|_|  \_\_|  |_|
+               _/ |                                     
+              |__/                                      
+*/
+
+
 //URL of API
 const url_api = "https://codecyprus.org/th/api";
 const test_api = "https://codecyprus.org/th/test-api";
@@ -54,6 +66,7 @@ function getHunt()      //get List of Treasure Hunts
                 console.log(JSONresponse);
                 if(JSONresponse.status == "OK")
                 {
+                    console.log("getHunt(): OK");
                     let treasureHunt; //
 
                     huntList = document.getElementById('hunt-list');
@@ -96,8 +109,8 @@ function getHunt()      //get List of Treasure Hunts
                 else
                 {
                     //error message
+                    console.log("getHunt(): ERROR");
                     window.alert("There was an error. Please refresh or try again later.")
-                    console.log("ERROR: No OK response");
                 }
                 
             }
@@ -143,6 +156,7 @@ function startGame(event)    //called with EventListener(click) in getHunt()
                     - open new page
                     - pass session id as html parameter
                     */
+                    console.log("startGame(): OK");
                     let sessionid = JSONresponse2.session;
 
                     window.open("quiz.html?sessionid=" + sessionid, '_self', true);
@@ -150,9 +164,8 @@ function startGame(event)    //called with EventListener(click) in getHunt()
                 else
                 {
                     //error message
-                    //get custom message for each error
+                    console.log("startGame(): OK");
                     window.alert(JSONresponse2.errorMessages);
-                    console.log("ERROR: No OK response");
                 }
 
             }
@@ -173,7 +186,7 @@ function getQuestion()
             {
                 if(JSONresponse3.status == "OK")
                 {
-                    console.log("OK response");
+                    console.log("getQuestion(): OK");
                     questionBox = document.getElementById('questionBox');
                     answerBox = document.getElementById('answerBox');
                     skipBox = document.getElementById('skipBox');
@@ -372,8 +385,8 @@ function getQuestion()
                 }
                 else
                 {
-                    window.alert(JSONrepsonse3.errorMessages);
-                    console.log("ERROR: No OK response.");
+                    console.log("getQuestion(): ERROR");
+                    window.alert(JSONresponse3.errorMessages);
                 }
             }
             );
@@ -413,7 +426,7 @@ function sendAnswer(event)   //call with EventListener('click') in getQuestion()
 
             if(JSONresponse4.status == "OK")
             {
-                console.log("OK response");
+                console.log("sendAnswer(): OK");
                 if(JSONresponse4.correct == true)
                 {
                     console.log("correct answer");
@@ -427,8 +440,8 @@ function sendAnswer(event)   //call with EventListener('click') in getQuestion()
             }
             else
             {
+                console.log("sendAnswer(): ERROR");
                 window.alert(JSONresponse4.errorMessages);
-                console.log("ERROR: No OK response.");
             }
         }
         );
@@ -451,13 +464,14 @@ function skipAnswer()   //call with onclick=""?
                 if(JSONresponse6.status == "OK")
                 {
                     //code
+                    console.log("skipAnswer(): OK")
                     window.location.reload(true);
                 }
                 else
                 {
                     //error message
                     window.alert(JSONresponse6.errorMessages);
-                    console.log("ERROR: No OK response");
+                    console.log("skipAnswer(): ERROR");
                 }
             }
             );
@@ -469,9 +483,34 @@ function skipAnswer()   //call with onclick=""?
 
 }
 
+//SCORE FUNCTIONS
+function getScore()
+{
+    //example URL: https://codecyprus.org/th/api/score?session=ag9nfmNvZGVjeXBydXNvcmdyFAsSB1Nlc3Npb24YgICAoMa0gQoM
+    const urlParams = new URLSearchParams(window.location.search);
+
+    let getScoreURL = score_api + "?session=" + urlParams.get('sessionid');
+
+    fetch(getScoreURL)
+    .then(response => response.json())
+    .then(JSONresponse7 =>
+        {
+            if(JSONresponse7.status == "OK")
+            {
+                console.log("getScore(): OK");
+            }
+            else
+            {
+                console.log("getScore(): ERROR");
+                window.alert(JSONresponse7.errorMEssages);
+            }
+        }
+        );
+
+}
+
 
 //GEOLOCATION FUNCTIONS
-
 function getLocation()
 {
 
@@ -479,7 +518,7 @@ function getLocation()
     if (navigator.geolocation)
     {
         navigator.geolocation.getCurrentPosition(showPosition);
-        console.log("geolocation accepted");
+        console.log("getLocation(): OK");
         setTimeout(getLocation, 30000);
     } 
     else 
@@ -512,13 +551,15 @@ function showPosition(position)
             if(JSONrepsonse5.status === "OK")
             {
                 //code
+                console.log("showLocation(): OK")
                 console.log(JSONrepsonse5.message);
+                
             }
             else
             {
                 //error message
+                console.log("showLocation(): ERROR");
                 window.alert(JSONrepsonse5.errorMessages);
-                console.log("ERROR: No OK response");
             }
         }
         );
