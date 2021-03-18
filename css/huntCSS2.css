@@ -58,6 +58,11 @@ button
     width: 75%;
 }
 
+.content-left
+{
+    text-align: left;
+}
+
 .footer-bottom
 {
     background-color: #263d5c;
