@@ -52,7 +52,7 @@ let latitude;
 let longitude;
 
 
-//COOKIE FUNCTIONS  >>replace cookies.js later<<
+//COOKIE FUNCTIONS  >>  W3Schools  https://www.w3schools.com/js/js_cookies.asp  <<
 function setCookie(cookieName, cookieValue, expirationDays)
 {
   let date = new Date();
@@ -66,7 +66,8 @@ function getCookie(cookieName)
 {
   
     let name = cookieName + "=";
-    let ca = document.cookie.split(';');
+    let decodedcookie=decodeURIComponent(document.cookie);
+    let ca = decodedcookie.split(';');
     for(let i = 0; i <ca.length; i++) 
     {
         let c = ca[i];
