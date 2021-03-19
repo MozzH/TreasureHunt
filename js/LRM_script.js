@@ -1,5 +1,5 @@
 /*
-_____            _           _     _      _____  __  __ 
+ _____           _           _     _      _____  __  __ 
 |  __ \         (_)         | |   | |    |  __ \|  \/  |
 | |__) | __ ___  _  ___  ___| |_  | |    | |__) | \  / |
 |  ___/ '__/ _ \| |/ _ \/ __| __| | |    |  _  /| |\/| |
@@ -41,7 +41,7 @@ const leaderboard_api = url_api + "/leaderboard";
 let playername;
 let score;
 //let sessionid;
-let leaderboardLimit = 10;
+let leaderboardLimit = 25;
 
 //element variables
 let huntList;           //app.html#hunt-list
@@ -480,12 +480,14 @@ function sendAnswer(event)   //call with EventListener('click') in getQuestion()
                 if(JSONresponse4.correct == true)
                 {
                     console.log("correct answer");
+                    score = score + JSONresponse4.scoreAdjustment;
                     //reload page
                     window.location.reload(true);
                 }
                 else if (JSONresponse4.correct == false)
                 {
                     console.log("false answer");
+                    score = score + JSONresponse4.scoreAdjustment;
                 }
             }
             else
@@ -516,6 +518,7 @@ function skipAnswer()   //call with onclick=""?
                 {
                     //code
                     console.log("skipAnswer(): OK")
+                    score = score + JSONresponse6.scoreAdjustment;
                     window.location.reload(true);
                 }
                 else
@@ -577,16 +580,20 @@ function getLeaderboard()
                     let leaderboardTH;
                     let leaderboardPosition = 0;
 
+                    leaderboardScore = document.getElementById('leaderboard-score');
+                    leaderboardScore.innerText = "You scored " + score + " Points.";
+
                     leaderboardTable = document.getElementById('leaderboard-table');
                     
                     //create table data with for loop
                     for(leaderboardTH of JSONresponse8.leaderboard)
                     {
                         let leaderboardTableRowData = document.createElement('tr');
+                        leaderboardTableRowData.className = "leaderboard-row"
 
                         let leaderboardDataPos = document.createElement('td');
                         leaderboardPosition++;
-                        leaderboardPosition.className = "content-right";
+                        leaderboardDataPos.className = "content-right";
                         leaderboardDataPos.innerText = leaderboardPosition;
 
                         let leaderboardDataPlayername = document.createElement('td');
