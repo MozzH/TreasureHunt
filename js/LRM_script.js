@@ -586,6 +586,7 @@ function getLeaderboard()
 
                         let leaderboardDataPos = document.createElement('td');
                         leaderboardPosition++;
+                        leaderboardPosition.className = "content-right";
                         leaderboardDataPos.innerText = leaderboardPosition;
 
                         let leaderboardDataPlayername = document.createElement('td');

@@ -63,6 +63,11 @@ button
     text-align: left;
 }
 
+.content-right
+{
+    text-align: right;
+}
+
 .footer-bottom
 {
     background-color: #263d5c;
