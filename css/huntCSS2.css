@@ -108,6 +108,11 @@ button
     text-align: center;
 }
 
+.leaderboard
+{
+    margin-top: 5%;
+}
+
 .leaderboard-row:nth-child(odd)
 {
     background-color: #cdcdcd;
