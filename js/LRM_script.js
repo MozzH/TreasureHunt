@@ -41,7 +41,7 @@ const leaderboard_api = url_api + "/leaderboard";
 let playername;
 let score;
 //let sessionid;
-let leaderboardLimit = 25;
+var leaderboardLimit = 25;
 
 //element variables
 let huntList;           //app.html#hunt-list
@@ -567,6 +567,7 @@ function getLeaderboard()
 {
     //example URL: https://codecyprus.org/th/api/leaderboard?session=ag9nfmNvZGVjeXBydXNvcmdyFAsSB1Nlc3Npb24YgICAoMa0gQoM&sorted&limit=10
     const urlParams = new URLSearchParams(window.location.search);
+    
 
     let getLeaderboardURL = leaderboard_api + "?session=" + urlParams.get('sessionid') + "&sorted&limit=" + leaderboardLimit;
 
@@ -580,11 +581,11 @@ function getLeaderboard()
                     let leaderboardTH;
                     let leaderboardPosition = 0;
 
-                    leaderboardScore = document.getElementById('leaderboard-score');
+                    let leaderboardScore = document.getElementById('leaderboard-score');
                     leaderboardScore.innerText = "You scored " + score + " Points.";
 
                     leaderboardTable = document.getElementById('leaderboard-table');
-                    
+
                     //create table data with for loop
                     for(leaderboardTH of JSONresponse8.leaderboard)
                     {
