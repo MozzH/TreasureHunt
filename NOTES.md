@@ -186,6 +186,9 @@
   * **Al-Ghalibi Mohammed:**
     * API Work & optimization
       * Will work on the API
+  
+- - - -
+- - - -
 #  Sixth meeting - March 10th, 2021
 
 * **Time:**
@@ -216,7 +219,8 @@
   * **Al-Ghalibi Mohammed:**
     * API Work & Social media engagement
       * Will work on the API & increase the engagement in social media
-
+- - - -
+- - - -
 #  Seventh meeting - March 15th, 2021
 
 * **Time:**
@@ -247,3 +251,34 @@
   * **Al-Ghalibi Mohammed:**
     * QR Code development & testing & Further social media engagement
       * Will develop the QR code functionality, create a testing page & increase the engagement on social media.
+- - - -
+- - - -
+#  Eighth meeting - March 20th, 2021
+
+* **Time:**
+  * *5:00 PM EET*
+* **Location:**
+  * *Online; Microsoft Teams*
+
+* **Participants:**
+  * *Al-Ghalibi Mohammed*
+  * *Lefteris Tziambouris*
+  * *Robin K. Schulz*
+
+#### Expectations:
+ 
+ - Further development of the API    
+ - Assign further tasks
+
+#### Outcomes: 
+
+
+  * **Lefteris Tziambouris** 
+    * Fixing bugs
+      * Will fix some bugs that arise
+  * **Robin K. Schulz:**
+    * Further API work
+      * Will work on the API
+  * **Al-Ghalibi Mohammed:**
+    * UAT, Nielsons evaulation, fixing bugs
+      * Will build Nielsons evaluation & user acceptance page, fix bugs and post more on social media
