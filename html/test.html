@@ -1,101 +1,150 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Acceptance Testing</title>
+    <link rel="stylesheet" type="text/css" href="../css/huntCSS2.css" />
+</head>
 
-        <link rel="stylesheet" type="text/css" href="../css/huntCSS2.css" />
-    </head>
-    
-    <body>
-       		<!--HEADER-->
-		<div id="navbar">
+<body>
+<!--HEADER-->
+<div id="navbar">
 
-			<!--BUTTON TWITTER-->
-			<a class="navbar-link" href="https://twitter.com/ProjectLRM" target="_blank">
-				<div class="navbar-button">
-					Twitter
-				</div>
-			</a>
+    <!--BUTTON TWITTER-->
+    <a class="navbar-link" href="https://twitter.com/ProjectLRM" target="_blank">
+        <div class="navbar-button">
+            Twitter
+        </div>
+    </a>
 
 
-			<!--BUTTON INSTAGRAM-->
-			<a class="navbar-link" href="https://www.instagram.com/projectlrm/" target="_blank">
-				<div class="navbar-button">
-					Instagram
-				</div>
-			</a>
+    <!--BUTTON INSTAGRAM-->
+    <a class="navbar-link" href="https://www.instagram.com/projectlrm/" target="_blank">
+        <div class="navbar-button">
+            Instagram
+        </div>
+    </a>
 
-			<!--BUTTON YOUTUBE-->
-			<a class="navbar-link" href="https://www.youtube.com/channel/UCKZ5SiUPAIZLULCkRCd5qGA" target="_blank">
-				<div class="navbar-button">
-					YouTube
-				</div>
-			</a>
-		</div>
-	    
-	    
-	    <!--MAIN-->
-	    
-	    
-	    <div id="intro" class="section">
-		<div class="content">
-            <div class="intro-text headline">
-	      <h1>Testing</h1>	    
-	    </div>
-		</div>
-	    </div>
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    <!--GO BACK-->
-        <div class="content-center">
-            <br>
-            <a href="../index.html">Go back</a>
-        </div>	
+    <!--BUTTON YOUTUBE-->
+    <a class="navbar-link" href="https://www.youtube.com/channel/UCKZ5SiUPAIZLULCkRCd5qGA" target="_blank">
+        <div class="navbar-button">
+            YouTube
+        </div>
+    </a>
+</div>
 
-		<!--FOOTER-->
-		<footer>
-            <div class="footer-top">
-                <div class="footer-top-left">
-					Website links:
-					<br />
-					<a href="../index.html">Home</a>
-					<br />
-					<a href="app.html">App</a>
-					<br />
-					<a href="notes.html">Notes</a>
-					<br />
-					<a href="test.html">Test</a>               
-				</div>
 
-                <div class="footer-top-right">
-                    No students were harmed in making this website.
-                </div>
-            </div>
-            <div class="footer-bottom">
-                UCLan Treasure Hunt - a CO1111 Project
-            </div>
-        </footer>
-    </body>
+<!--MAIN-->
+    <style>
+
+    div.NielsensAssessment {
+        margin: auto;
+        text-align: center;
+        width: 50%;
+        padding: 10px;
+        font-family: Georgia, serif;
+    }
+    div.NielsensContent {
+        margin: auto;
+        width: 50%;
+        padding: 10px;
+        font-family: Georgia, serif;
+    }
+
+    </style>
+<div class="NielsensAssessment"><h1 id="nielsens-heuristics-evaluation">Nielsen’s Heuristics Evaluation</h1>
+    <hr>
+    <hr>
+</div>
+    <div class="NielsensContent"><h3 id="visibility-of-system-status">1. <strong>Visibility of system status</strong></h3>
+    <ul>
+        <li><em>Title of page changes depending on where the user currently is.</em></li>
+        <li><em>The player can go back home, go to the notes page or go to the quiz starting page anywhere on the app</em></li>
+        <li><em>Buttons clearly visible with an easy-on-eye color palette</em></li>
+    </ul>
+    <h3 id="match-between-system-and-the-real-world">2. Match between system and the real world</h3>
+    <ul>
+        <li><em>App displays understandable terms, no technical terms are used</em></li>
+        <li><em>Buttons display meaningful words that accurately and simply describe their actions</em></li>
+        <li><em>Input properties (buttons, text-boxes) are placed in comfortable &amp; reachable positions for the user</em></li>
+    </ul>
+    <h3 id="user-control-and-freedom">3. User control and freedom</h3>
+    <ul>
+        <li><em>The user can skip questions if they want, if the question allows it</em></li>
+        <li><em>The user can opt-out of the quiz whenever they want</em></li>
+    </ul>
+    <h3 id="consistency-and-standards">4. Consistency and standards</h3>
+    <ul>
+        <li><em>All pages follow the same color palette and design</em></li>
+        <li><em>The user can go to the main pages on the app, wherever they are on the app</em></li>
+    </ul>
+    <h3 id="error-prevention">5. Error prevention</h3>
+    <ul>
+        <li><em>Prior to skipping a question, a warning is displayed to avoid accidental actions (misclicks)</em></li>
+        <li><em>Buttons that change the state of the game (go back) are nicely placed so that the user doesn’t accidentally misclick</em></li>
+    </ul>
+    <h3 id="recognition-rather-than-recall">6. Recognition rather than recall</h3>
+    <ul>
+        <li><em>Titles are updated each page</em></li>
+        <li><em>Buttons are self-explanatory</em></li>
+        <li><em>No change in color palette</em></li>
+    </ul>
+    <h3 id="flexibility-and-efficiency-of-use">7. Flexibility and efficiency of use</h3>
+    <ul>
+        <li><em>App can be used by any person in any age category</em></li>
+        <li><em>App doesn’t require any technical skills</em></li>
+        <li><em>Explanatory information about the page are displayed on every page</em></li>
+    </ul>
+    <h3 id="aesthetic-and-minimalist-design">8.  Aesthetic and minimalist design</h3>
+    <ul>
+        <li><em>App uses easy-on-eye color palette</em></li>
+        <li><em>App has a very straightforward, minimalistic &amp; professional design</em></li>
+        <li><em>No unneeded information so the user is never confused</em></li>
+    </ul>
+    <h3 id="help-users-recognize-diagnose-and-recover-from-errors">9. Help users recognize, diagnose, and recover from errors</h3>
+    <ul>
+        <li><em>Everything on the website is well-put and understandable</em></li>
+        <li><em>Use of technical terms is non-existent</em></li>
+        <li><em>Buttons have meaningful &amp; accurate names</em></li>
+    </ul>
+    <h3 id="help-and-documentation">10. Help and documentation</h3>
+    <ul>
+        <li><em>All questions in the quiz include an indirect answer</em></li>
+        <li><em>Prior to starting the quiz, the user has the ability to choose a quiz with a brief description of the quiz</em></li>
+    </ul>
+        <hr>
+        <hr>
+</div>
+
+
+
+<!--GO BACK-->
+<div class="content-center">
+    <br>
+    <a href="../index.html">Go back</a>
+</div>
+
+<!--FOOTER-->
+<footer>
+    <div class="footer-top">
+        <div class="footer-top-left">
+            Website links:
+            <br />
+            <a href="../index.html">Home</a>
+            <br />
+            <a href="app.html">App</a>
+            <br />
+            <a href="notes.html">Notes</a>
+        </div>
+
+        <div class="footer-top-right">
+            No students were harmed in making this website.
+        </div>
+    </div>
+    <div class="footer-bottom">
+        UCLan Treasure Hunt - a CO1111 Project
+    </div>
+</footer>
+</body>
 </html>
