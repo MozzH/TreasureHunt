@@ -1,4 +1,4 @@
-![enter image description here](https://cdn.discordapp.com/attachments/653348420156653581/817297349436899348/Group_meeting_notes___Activities-removebg-preview.png)
+![Notes](https://cdn.discordapp.com/attachments/653348420156653581/817297349436899348/Group_meeting_notes___Activities-removebg-preview.png)
 
 - - - -
 - - - - 
