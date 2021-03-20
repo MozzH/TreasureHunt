@@ -275,7 +275,7 @@
 
   * **Lefteris Tziambouris** 
     * Fixing bugs
-      * Will fix some bugs that arise
+      * Will fix bugs that arise
   * **Robin K. Schulz:**
     * Further API work
       * Will work on the API
