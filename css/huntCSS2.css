@@ -126,6 +126,12 @@ button
     list-style-type: none;
 }
 
+.meeting-att
+{
+    display: inline-block;
+    width: 35%;
+}
+
 .navbar-button
 {
     padding: 5px;
@@ -136,6 +142,11 @@ button
 .navbar-link
 {
     width: 33%;
+}
+
+.notes-list
+{
+    margin-top: 7px;
 }
 
 .register-form
