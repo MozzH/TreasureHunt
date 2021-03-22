@@ -620,10 +620,10 @@ function getLeaderboard()
                     }
 
                     let leaderboardButton = document.getElementById("leaderboard-button");
-                    leaderboardRefresh.addEventListener("click", function(){});
+                    leaderboardButton.addEventListener("click", function(){});
 
                     let leaderboardRefresh = document.getElementById("leaderboard-refresh");
-                    leaderboardRefresh.addEventListener("click", function(){window.location.reload(true)})
+                    leaderboardRefresh.addEventListener("click", function(){window.location.reload(true)});
 
                 }
                 else
