@@ -235,7 +235,7 @@ button
 
 .twitter-timeline
 {
-    width: 75%;
+    width: 70%;
 }
 
 #answerBox
@@ -386,10 +386,6 @@ button
     font-family: Georgia, serif;
 }
 
-*{
-    margin: 0;
-    padding: 0;
-}
 .table-box
 {
     margin: 50px auto;
