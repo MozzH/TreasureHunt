@@ -254,8 +254,9 @@ function getQuestion()
 
                     //show score
                     let scoreParagraph = document.createElement('p');
+
+                    getScore(scoreParagraph)
                     playerscore = getScore();
-                    scoreParagraph.innerText = "Score: " + playerscore;
                     questionBox.appendChild(scoreParagraph);
                     
                     //create question
@@ -263,6 +264,10 @@ function getQuestion()
                     questionParagraph.innerHTML = JSONresponse3.questionText;
                     //append questionParagraph
                     questionBox.appendChild(questionParagraph);
+
+                    console.log("correct Score: " + JSONresponse3.correctScore);
+                    console.log("wrong Score: " + JSONresponse3.wrongScore);
+                    console.log("skip Score: " + JSONresponse3.skipScore);
 
                     let questionType = JSONresponse3.questionType;
 
@@ -487,17 +492,18 @@ function sendAnswer(event)   //call with EventListener('click') in getQuestion()
             if(JSONresponse4.status == "OK")
             {
                 console.log("sendAnswer(): OK");
-                if(JSONresponse4.correct == true)
+                if(JSONresponse4.correct == true)           //answer correct
                 {
                     console.log("correct answer");
                     //playerscore = playerscore + JSONresponse4.scoreAdjustment;
                     //reload page
                     window.location.reload(true);
                 }
-                else if (JSONresponse4.correct == false)
+                else if (JSONresponse4.correct == false)    //answer false
                 {
                     window.alert("This answer was false. Try again.")
                     console.log("false answer");
+                    window.location.reload(true);
                     //playerscore = playerscore + JSONresponse4.scoreAdjustment;
                 }
             }
@@ -549,7 +555,7 @@ function skipAnswer()   //call with onclick=""?
 }
 
 //SCORE FUNCTIONS
-function getScore()
+function getScore(scoreParagraph)
 {
     //example URL: https://codecyprus.org/th/api/score?session=ag9nfmNvZGVjeXBydXNvcmdyFAsSB1Nlc3Npb24YgICAoMa0gQoM
     const urlParams = new URLSearchParams(window.location.search);
@@ -563,7 +569,12 @@ function getScore()
             if(JSONresponse7.status == "OK")
             {
                 console.log("getScore(): OK");
+                console.log("getScore(): " + JSONresponse7.score);
                 playerscore = JSONresponse7.score;
+                console.log("getScore(): " + playerscore);
+
+                scoreParagraph.innerText = "Score: " + playerscore;
+
             }
             else
             {
@@ -572,7 +583,6 @@ function getScore()
             }
         }
         );
-    return playerscore;
 
 }
 
