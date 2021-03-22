@@ -132,8 +132,8 @@ function getHunt()      //get List of Treasure Hunts
                         let tresureHuntDuration = (treasureHunt.maxDuration / 1000 / 60);
 
                         THelementDetails.innerHTML = "<b>Description:</b> " + treasureHunt.description + '<br>' 
-                                                    + "<b>Starts on:</b> " + treasureHuntStartDate.toLocaleDateString('en-US') + '<br>'
-                                                    + "<b>Ends on:</b> " + treasureHuntEndDate.toLocaleDateString('en-US') + '<br>'
+                                                    + "<b>Starts on:</b> " + treasureHuntStartDate.toLocaleDateString('de-DE') + '<br>'
+                                                    + "<b>Ends on:</b> " + treasureHuntEndDate.toLocaleDateString('de-DE') + '<br>'
                                                     + "<b>Duration:</b> around " + tresureHuntDuration + " minutes";
 
                         let THelementButton = document.createElement('button');
@@ -631,7 +631,8 @@ function getLeaderboard()
     
                         let leaderboardDataTime = document.createElement('td');
                         let leaderboardDateString = new Date (leaderboardTH.completionTime);
-                        leaderboardDataTime.innerText = leaderboardDateString.toLocaleDateString('en-US');
+                        leaderboardDataTime.className = "content-right";
+                        leaderboardDataTime.innerText = leaderboardDateString.toLocaleDateString('de-DE');
 
                         leaderboardTableRowData.appendChild(leaderboardDataPos);
                         leaderboardTableRowData.appendChild(leaderboardDataPlayername);
