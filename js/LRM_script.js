@@ -240,11 +240,15 @@ function getQuestion()
                     questionBox = document.getElementById('questionBox');
                     answerBox = document.getElementById('answerBox');
                     skipBox = document.getElementById('skipBox');
-
+                    let locationHint;
 
                     //check for location
                     if (JSONresponse3.requiresLocation == true)
                     {
+                        locationHint = document.createElement('p');
+                        locationHint.className = "hint";
+                        locationHint.innerText = "This question requires the correct location.";
+                        answerBox.appendChild(locationHint);
                         getLocation();
                     }
                     
@@ -410,6 +414,8 @@ function getQuestion()
                             break;
                     }
                     //END OF SWITCH/CASE
+
+                    //requires Location
 
                     //skip button
                     let skipButton = document.createElement('button');
