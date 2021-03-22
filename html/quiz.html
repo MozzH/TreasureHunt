@@ -12,8 +12,8 @@
 		<meta name="robots" content="index" />
 		<meta name="robots" content="nofollow" />
 
-		<!--<script defer src="../js/cookies.js"></script>
-		<script defer src="../js/geolocation.js"></script>-->
+		<script src="../js/instascan.min.js"></script>
+
 	</head>
 	
 	<body>
@@ -66,6 +66,14 @@
 					</div>
 					<div id="skipBox">
 						<!--content created with javascript-->
+					</div>
+					
+					<div class="content-center">
+					<button id="openCamera" onclick="scanCamera()"><a><img height="30" src="https://image.flaticon.com/icons/png/512/66/66580.png"></a></button>
+					</div>
+					
+					<div id="camera" style="display: none">
+						<video id="preview"></video>
 					</div>
 				</div>
               
