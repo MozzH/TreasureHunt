@@ -415,8 +415,6 @@ function getQuestion()
                     }
                     //END OF SWITCH/CASE
 
-                    //requires Location
-
                     //skip button
                     let skipButton = document.createElement('button');
                     skipButton.innerText = "skip";
@@ -492,6 +490,7 @@ function sendAnswer(event)   //call with EventListener('click') in getQuestion()
                 }
                 else if (JSONresponse4.correct == false)
                 {
+                    window.alert("This answer was false. Try again.")
                     console.log("false answer");
                     score = score + JSONresponse4.scoreAdjustment;
                 }
