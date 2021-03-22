@@ -614,10 +614,11 @@ function getLeaderboard()
                         leaderboardTable.appendChild(leaderboardTableRowData);
                     }
 
+                    let leaderboardButton = document.getElementById("leaderboard-button");
+                    leaderboardRefresh.addEventListener("click", function(){});
+
                     let leaderboardRefresh = document.getElementById("leaderboard-refresh");
                     leaderboardRefresh.addEventListener("click", function(){window.location.reload(true)})
-
-                    
 
                 }
                 else
