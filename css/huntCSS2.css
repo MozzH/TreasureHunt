@@ -426,11 +426,12 @@ button
 .last-cell{
     border-right: none;
 }
+/*  Commented out by Rob; it overwrites before declared links; try using a class for this
 a{
     text-decoration: none;
     color: #555;
 }
-
+*/
 @media only screen and (max-width: 600px) {
     .table-row {
         font-size: 11px;
