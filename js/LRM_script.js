@@ -613,6 +613,12 @@ function getLeaderboard()
                         leaderboardTableRowData.appendChild(leaderboardDataTime);
                         leaderboardTable.appendChild(leaderboardTableRowData);
                     }
+
+                    let leaderboardRefresh = document.getElementById("leaderboard-refresh");
+                    leaderboardRefresh.addEventListener("click", function(){window.location.reload(true)})
+
+                    
+
                 }
                 else
                 {
