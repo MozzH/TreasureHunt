@@ -83,6 +83,44 @@ function getCookie(cookieName)
     return "";
 }
 
+//QR Code Reader
+//As seen in the lab worksheet (code taken from the lab worksheet and edited a bit)
+let opts = {
+    continuous: true,
+    video: document.getElementById('preview'),
+    mirror: true,
+    captureImage: false,
+    backgroundScan: true,
+    refractoryPeriod: 5000,
+    scanPeriod: 1
+};
+
+function scanCamera() {
+
+    document.getElementById("camera").style.display = "block";
+
+    let scanner = new Instascan.Scanner(opts);
+    Instascan.Camera.getCameras()
+        .then(function (cameras) {
+                if (cameras.length > 0) {
+
+                    scanner.start(cameras[0]); //First camera
+                } else {
+                    alert("No cameras found."); //Alerting the user
+                }
+            }
+        )
+
+        .catch
+        (function (e) {
+            console.error("Some errors:" + e);
+        });
+
+    scanner.addListener('scan', function (content) {
+        console.log(content);
+        document.getElementById("content").innerHTML = content;
+    });
+}
 
 
 //SESSION FUNCTIONS
