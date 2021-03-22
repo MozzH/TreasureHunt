@@ -39,7 +39,7 @@ const leaderboard_api = url_api + "/leaderboard";
 //VARIABLES
 //general game variables
 let playername;
-let score;
+var playerscore;
 //let sessionid;
 var leaderboardLimit = 25;
 
@@ -251,6 +251,12 @@ function getQuestion()
                         answerBox.appendChild(locationHint);
                         getLocation();
                     }
+
+                    //show score
+                    let scoreParagraph = document.createElement('p');
+                    playerscore = getScore();
+                    scoreParagraph.innerText = "Score: " + playerscore;
+                    questionBox.appendChild(scoreParagraph);
                     
                     //create question
                     let questionParagraph = document.createElement('p');
@@ -484,7 +490,7 @@ function sendAnswer(event)   //call with EventListener('click') in getQuestion()
                 if(JSONresponse4.correct == true)
                 {
                     console.log("correct answer");
-                    score = score + JSONresponse4.scoreAdjustment;
+                    //playerscore = playerscore + JSONresponse4.scoreAdjustment;
                     //reload page
                     window.location.reload(true);
                 }
@@ -492,7 +498,7 @@ function sendAnswer(event)   //call with EventListener('click') in getQuestion()
                 {
                     window.alert("This answer was false. Try again.")
                     console.log("false answer");
-                    score = score + JSONresponse4.scoreAdjustment;
+                    //playerscore = playerscore + JSONresponse4.scoreAdjustment;
                 }
             }
             else
@@ -523,7 +529,7 @@ function skipAnswer()   //call with onclick=""?
                 {
                     //code
                     console.log("skipAnswer(): OK")
-                    score = score + JSONresponse6.scoreAdjustment;
+                    //playerscore = playerscore + JSONresponse6.scoreAdjustment;
                     window.location.reload(true);
                 }
                 else
@@ -557,6 +563,7 @@ function getScore()
             if(JSONresponse7.status == "OK")
             {
                 console.log("getScore(): OK");
+                playerscore = JSONresponse7.score;
             }
             else
             {
@@ -565,6 +572,7 @@ function getScore()
             }
         }
         );
+    return playerscore;
 
 }
 
@@ -587,7 +595,7 @@ function getLeaderboard()
                     let leaderboardPosition = 0;
 
                     let leaderboardScore = document.getElementById('leaderboard-score');
-                    leaderboardScore.innerText = "You scored " + score + " Points.";
+                    leaderboardScore.innerText = "You scored " + playerscore + " Points.";
 
                     leaderboardTable = document.getElementById('leaderboard-table');
 
