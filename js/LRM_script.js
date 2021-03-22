@@ -255,7 +255,7 @@ function getQuestion()
                     //show score
                     let scoreParagraph = document.createElement('p');
 
-                    getScore(scoreParagraph)
+                    getScore(scoreParagraph);
                     playerscore = getScore();
                     questionBox.appendChild(scoreParagraph);
                     
@@ -495,16 +495,15 @@ function sendAnswer(event)   //call with EventListener('click') in getQuestion()
                 if(JSONresponse4.correct == true)           //answer correct
                 {
                     console.log("correct answer");
-                    //playerscore = playerscore + JSONresponse4.scoreAdjustment;
-                    //reload page
+
                     window.location.reload(true);
                 }
                 else if (JSONresponse4.correct == false)    //answer false
                 {
                     window.alert("This answer was false. Try again.")
                     console.log("false answer");
+
                     window.location.reload(true);
-                    //playerscore = playerscore + JSONresponse4.scoreAdjustment;
                 }
             }
             else
@@ -535,7 +534,7 @@ function skipAnswer()   //call with onclick=""?
                 {
                     //code
                     console.log("skipAnswer(): OK")
-                    //playerscore = playerscore + JSONresponse6.scoreAdjustment;
+
                     window.location.reload(true);
                 }
                 else
@@ -573,7 +572,7 @@ function getScore(scoreParagraph)
                 playerscore = JSONresponse7.score;
                 console.log("getScore(): " + playerscore);
 
-                scoreParagraph.innerText = "Score: " + playerscore;
+                scoreParagraph.innerText = "Your Score: " + playerscore;
 
             }
             else
@@ -605,7 +604,11 @@ function getLeaderboard()
                     let leaderboardPosition = 0;
 
                     let leaderboardScore = document.getElementById('leaderboard-score');
-                    leaderboardScore.innerText = "You scored " + playerscore + " Points.";
+                    let scoreParagraph = document.createElement('p');
+                    getScore(scoreParagraph);
+                    playerscore = getScore();
+                    scoreParagraph.innerText = "You scored " + playerscore + " Points.";
+                    leaderboardScore.appendChild(scoreParagraph);
 
                     leaderboardTable = document.getElementById('leaderboard-table');
 
