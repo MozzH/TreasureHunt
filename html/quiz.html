@@ -77,6 +77,39 @@
 					</div>
 				</div>
               
+				<!-- VOICE RECOGNITION FUNCTION! -->
+					<!-- Learned how to do that by watching the following video: https://youtu.be/4eIRrowvLRk -->
+					<!-- Microphone image that enables voice recognition on-click -->
+					<i onclick="record();"> <a><img height="30" src="https://cdn.discordapp.com/attachments/653348420156653581/823208327134838794/pngtree-vector-microphone-icon-png-image_695750-removebg-preview.png"></a> </i>
+
+							<!-- Below is the script for voice recognition and conversion to text-->
+							<script>
+
+									function record() {
+									var recognition = new webkitSpeechRecognition();
+									
+									//Even though its not used, but you're actually able to speak in greek and it works perfectly too, check it out if you want
+									//And not only that, its cypriot and you can speak in cypriot
+									//Just comment out the english one and uncomment the "el-CY" one
+
+									//recognition.lang = "el-CY";
+
+									recognition.lang = "en-US";
+									
+
+									recognition.onresult = function(event) {
+										
+										document.getElementById("answerTextBox").value = event.results[0][0].transcript;
+
+									}
+									recognition.start();
+
+								}
+
+							</script>
+							<!-- end of script -->
+				
+				
 			</div>
 
 			<!--GO BACK-->
