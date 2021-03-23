@@ -55,6 +55,7 @@ let longitude;
 //COOKIE FUNCTIONS  >>  W3Schools  https://www.w3schools.com/js/js_cookies.asp  <<
 function setCookie(sessionid, playername)
 {
+    console.log("setCookie(" + sessionid + "," + playername + ")");
     let date = new Date();
     date.setTime(date.getTime() + (expirationDays*24*60*60*1000));
     let expires = "expires=" + date.toGMTString();
@@ -68,6 +69,7 @@ function setCookie(sessionid, playername)
 
 function getCookie(cookieName) 
 {
+    console.log("getCookie()");
   
     let name = cookieName + "=";
     let decodedcookie=decodeURIComponent(document.cookie);
@@ -144,11 +146,13 @@ function getHunt()      //get List of Treasure Hunts
     console.log("getHunt called");
     if (getCookie('previousGame') == 'true' && confirm('Do you want to coninue the previous saved game?'))
     {
+        console.log("previous game detected");
         sessionid = getCookie('sessionid');
         startGame();
     }
     else
     {
+        console.log("no previous game detected");
 
         fetch(list_api)
             .then(response => response.json())  //https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
@@ -254,8 +258,10 @@ function startGame(event)    //called with EventListener(click) in getHunt()
                     console.log("startGame(): OK");
                     let sessionid = JSONresponse2.session;
 
-                    setCookie(sessionid, playername);
-
+                    document.cookie = 'previousGame=true;' + ";" + "expires=" + expires + ";";
+                    document.cookie = 'sessionid=' + sessionid + ";" + "expires=" + expires + ";";
+                    document.cookie = 'playername=' + playername + ";" + "expires=" + expires + ";";
+                
                     window.open("quiz.html?sessionid=" + sessionid, '_self', true);
                 }
                 else
