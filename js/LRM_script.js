@@ -303,7 +303,7 @@ function getQuestion()
                     let sessionid = urlParams.get('sessionid');
                     leaderboardLimit = 25;
                     console.log("leaderboardLimit: " + leaderboardLimit);
-                    window.open("leaderboard.html?sessionid=" + sessionid + "?leaderboardLimit=" + leaderboardLimit, '_self', true);// + "?leaderboardLimit=" + leaderboardLimit, '_self', true);
+                    window.open("leaderboard.html?sessionid=" + sessionid + "&leaderboardLimit=" + leaderboardLimit, '_self', true);// + "?leaderboardLimit=" + leaderboardLimit, '_self', true);
                 }
 
                 if(JSONresponse3.status == "OK")
@@ -670,7 +670,6 @@ function getLeaderboard()
     //example URL: https://codecyprus.org/th/api/leaderboard?session=ag9nfmNvZGVjeXBydXNvcmdyFAsSB1Nlc3Npb24YgICAoMa0gQoM&sorted&limit=10
     const urlParams = new URLSearchParams(window.location.search);
     
-
     leaderboardLimit = urlParams.get('leaderboardLimit');
 
     let getLeaderboardURL = leaderboard_api + "?session=" + urlParams.get('sessionid') + "&sorted&limit=" + leaderboardLimit;
@@ -685,11 +684,14 @@ function getLeaderboard()
                     console.log("getLeaderboard(): OK");
                     let leaderboardTH;
                     let leaderboardPosition = 0;
-                    let playerRank; //Rank of Player
+                    let playerrank; //Rank of Player
 
                     let leaderboardScore = document.getElementById('leaderboard-score');
                     let scoreParagraph = document.createElement('p');
                     getScore(scoreParagraph);
+
+                    playername = getCookie("playername");
+                    console.log("Playername: " + playername);                
 
                     //show playerrank
                     let leaderboardEntry = JSONresponse8.leaderboard;
@@ -698,19 +700,19 @@ function getLeaderboard()
                         console.log("For loop");
                         if(leaderboardEntry[i].player === playername)
                         {
-                            playerRank = i;
-                            console.log("playerRank inside if: " + playerRank);
+                            playerrank = i;
+                            console.log("playerRank inside if: " + playerrank);
                         }
                         else
                         {
-                            playerRank = "You didn't make it onto the leaderboard";
+                            playerrank = "You didn't make it onto the leaderboard";
                         }
                     }
-                    console.log("playerRank: " + playerRank);
+                    console.log("playerRank: " + playerrank);
 
 
 
-                    scoreParagraph.innerText = "Your score: " + playerscore + " Points.";
+                    scoreParagraph.innerText = "Hi, " + playername + ", you are on place" + playerrank + ". Your score is " + playerscore + " Points.";
                     leaderboardScore.appendChild(scoreParagraph);
 
                     leaderboardTable = document.getElementById('leaderboard-table');
