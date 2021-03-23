@@ -678,7 +678,7 @@ function getLeaderboard()
                 if(JSONresponse8.status == "OK")
                 {
                     console.log("getLeaderboard(): OK");
-                    let leaderboardTH = 25;
+                    let leaderboardTH;
                     let leaderboardPosition = 0;
                     let playerRank; //Rank of Player
 
@@ -738,7 +738,10 @@ function getLeaderboard()
                     }
 
                     let leaderboardButton = document.getElementById("leaderboard-button");
-                    leaderboardButton.addEventListener("click", function(){});
+                    leaderboardButton.addEventListener("click", function(){
+                        leaderboardLimit = 50;
+                        window.location.reload(true);
+                    });
 
                     let leaderboardRefresh = document.getElementById("leaderboard-refresh");
                     leaderboardRefresh.addEventListener("click", function(){window.location.reload(true)});
