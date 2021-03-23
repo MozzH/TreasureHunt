@@ -66,7 +66,6 @@ function setCookie(sessionid, playername)
 
 }
 
-
 function getCookie(cookieName) 
 {
     console.log("getCookie()");
@@ -89,7 +88,7 @@ function getCookie(cookieName)
     return "";
 }
 
-//QR Code Reader
+//QR CODE READER
 //As seen in the lab worksheet (code taken from the lab worksheet and edited a bit)
 let opts = {
     continuous: true,
@@ -122,7 +121,7 @@ function scanCamera() {
             console.error("Some errors:" + e);
         });
 
-    scanner.addListener('scan', function (content) {
+        scanner.addListener('scan', function (content) {
         console.log(content);
         document.getElementById("content").innerHTML = content;
     });
@@ -235,8 +234,16 @@ function startGame(event)    //called with EventListener(click) in getHunt()
 {
     //start session + remember session id
     console.log(event.target.id);
-    let TreasureHuntID = event.target.id; //move out from function into html
+    let TreasureHuntID 
     
+    if(cookie)
+    {
+        TreasureHuntID = getCookie('sessionid');
+    }
+    else 
+    {
+        TreasureHuntID = event.target.id; //move out from function into html
+    }
     
     playername = getPlayername();
 
