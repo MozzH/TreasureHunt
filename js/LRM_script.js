@@ -238,7 +238,10 @@ function startGame(event)    //called with EventListener(click) in getHunt()
     if(event == undefined)
     {
         console.log(getCookie('sessionid'));
-        TreasureHuntID = getCookie('sessionid');
+        let sessionid = getCookie('sessionid');
+
+        window.open("quiz.html?sessionid=" + sessionid, '_self', true);
+
     }
     else 
     {
