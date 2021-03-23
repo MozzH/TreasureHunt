@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--INCLUDE NEW META TAGS-->
+
+    <link rel="stylesheet" type="text/css" href="../css/huntCSS2.css" />
+    <title>Treasure Hunt - Project L.R.M</title>
+    <meta name="keywords" content="Treasure Hunt, UCLan, Code Cyprus"/>
+    <meta name="robots" content="index" />
+    <meta name="robots" content="nofollow" />
+
+</head>
+
+<body>
+<!--HEADER-->
+<div id="navbar">
+
+    <!--BUTTON HOME-->
+    <a class="navbar-home" href="../index.html">
+        <div class="navbar-button">
+            Home
+        </div>
+    </a>
+
+    <!--BUTTON TWITTER-->
+    <a class="navbar-link" href="https://twitter.com/ProjectLRM" target="_blank">
+        <div class="navbar-button">
+            Twitter
+        </div>
+    </a>
+
+    <!--BUTTON INSTAGRAM-->
+    <a class="navbar-link" href="https://www.instagram.com/projectlrm/" target="_blank">
+        <div class="navbar-button">
+            Instagram
+        </div>
+    </a>
+
+    <!--BUTTON YOUTUBE-->
+    <a class="navbar-link" href="https://www.youtube.com/channel/UCKZ5SiUPAIZLULCkRCd5qGA" target="_blank">
+        <div class="navbar-button">
+            YouTube
+        </div>
+    </a>
+
+</div>
+
+<!--MAIN-->
+
+<h1 id="Test" style="text-align: center; color: #263d5c">Test</h1>
+
+<!-- Building a nice looking table for the test leaderboards -->
+<div id="leaderboardTable">
+
+    <div class="table-row table-head">
+
+        <div class="table-cell">
+            <p>Player name</p>
+        </div>
+        <div class="table-cell">
+            <p>Score</p>
+        </div>
+        <div class="table-cell">
+            <p>Completion time</p>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Text displaying whether its sorted or not -->
+
+<div class="content-center">
+<div style="border: 25px solid transparent">
+
+    <a style="color: #4c4f4c">Is Sorted: </a>
+
+    <a id="fail/pass"> </a>
+
+</div>
+
+    <div class="table-box">
+
+
+
+        <div class="table-row table-head">
+            <div class="test first-cell">
+                <p>Test number</p>
+            </div>
+            <div class="table-cell">
+                <p>Tester</p>
+            </div>
+            <div class="table-cell last-cell">
+                <p>Date</p>
+            </div>
+            <div class="table-cell last-cell">
+                <p>Description</p>
+            </div>
+            <div class="table-cell last-cell">
+                <p>Results</p>
+            </div>
+        </div>
+
+        <div class="table-row">
+            <div class="table-cell first-cell">
+                <p> 1</p>
+            </div>
+            <div class="table-cell">
+                <p>Al-Ghalibi Mohammed</p>
+            </div>
+            <div class="table-cell">
+                <p>23rd of March, 2021</p>
+            </div>
+            <div class="table-cell">
+                <p>Error in the code, even though the array was sorted it display "Fail"</p>
+            </div>
+            <div class="table-cell last-cell">
+                <p style="color:#800000">Fail</p>
+            </div>
+        </div>
+
+        <div class="table-row">
+            <div class="table-cell first-cell">
+                <p>2</p>
+            </div>
+            <div class="table-cell">
+                <p>Al-Ghalibi Mohammed</p>
+            </div>
+            <div class="table-cell">
+                <p>23rd of March, 2021</p>
+            </div>
+            <div class="table-cell">
+                <p>Functioning properly, if the array is sorted, it displays "Pass" and if it isn't, it displays "Fail"</p>
+            </div>
+            <div class="table-cell last-cell">
+                <p style="color:green">Pass</p>
+            </div>
+        </div>
+
+
+
+    </div>
+
+</div>
+
+<script>
+
+
+    //As seen in the lecture
+    const titleElement = document.getElementById("Test");
+
+    const leaderboardTableElement = document.getElementById("leaderboardTable");
+
+    const failOrPassElement = document.getElementById("fail/pass");
+
+    let sorted = true;
+
+    fetch("https://codecyprus.org/th/test-api/leaderboard?sorted&size=10")
+        .then(response => response.json())
+        .then(jsonObject => {
+
+            let tableContents = "";
+
+            console.log(jsonObject)
+            titleElement.innerText = jsonObject.treasureHuntName;
+
+            const leaderboardArray = jsonObject.leaderboard;
+
+            //Creating an array for the scores to check if they're sorted or not
+            const scoreArray = [];
+
+
+            for (let i = 0; i < leaderboardArray.length; i++)
+            {
+
+                const entry = leaderboardArray[i];
+                const playerName = entry.player;
+                const score = entry.score;
+                const completionTime = entry.completionTime;
+
+                //Pushing the scores into the array
+                scoreArray.push(score);
+
+
+
+                tableContents += "<div class=\"table-row\">" +
+                    " <div class=\"table-cell last-cell\">" + playerName + "</div>" +
+                    " <div class=\"table-cell last-cell\">" + score + "</div> " +
+                    " <div class=\"table-cell last-cell\">" + completionTime + "</div> " +
+                    "</div>"
+
+
+            }
+
+            leaderboardTableElement.innerHTML += tableContents;
+
+
+            //Checking if the array is sorted or not
+            for (let i = 0; i < leaderboardArray.length - 1; i++)
+            {
+                if (leaderboardArray[i].score < leaderboardArray[i+1].score)
+                {
+                    sorted = false;
+                    break;
+                }
+            }
+
+            //If its sorted, it will display "pass", if not, "fail"
+            sorted ?  failOrPassElement.innerText = "Pass" : failOrPassElement.innerText = "Fail"
+
+        })
+
+
+</script>
+
+  <div class="content-center">
+    <p><br></p>
+    <p><br></p>
+    <a href="../html/test.html">
+        <button class="button-blue button-blue_hover">
+            Go back
+        </button>
+    </a>
+    <p><br></p>
+    <p><br></p>
+</div>
+  
+
+<!--FOOTER-->
+<footer>
+    <div class="footer-top">
+        <div class="footer-top-left">
+            Website links:
+            <br />
+            <a href="../index.html">Home</a>
+            <br />
+            <a href="app.html">App</a>
+            <br />
+            <a href="notes.html">Notes</a>
+            <br />
+            <a href="test.html">Test</a>
+        </div>
+
+        <div class="footer-top-right">
+            No students were harmed in making this website.
+        </div>
+    </div>
+    <div class="footer-bottom">
+        UCLan Treasure Hunt - a CO1111 Project
+    </div>
+</footer>
+</body>
+</html>
