@@ -233,15 +233,16 @@ function getPlayername()
 function startGame(event)    //called with EventListener(click) in getHunt()
 {
     //start session + remember session id
-    console.log(event.target.id);
     let TreasureHuntID 
     
     if(getCookie('previousGame') == true)
     {
+        console.log(getCookie('sessionid'));
         TreasureHuntID = getCookie('sessionid');
     }
     else 
     {
+        console.log(event.target.id);
         TreasureHuntID = event.target.id; //move out from function into html
     }
     
