@@ -236,7 +236,7 @@ function startGame(event)    //called with EventListener(click) in getHunt()
     console.log(event.target.id);
     let TreasureHuntID 
     
-    if(cookie)
+    if(getCookie('previousGame') == true)
     {
         TreasureHuntID = getCookie('sessionid');
     }
