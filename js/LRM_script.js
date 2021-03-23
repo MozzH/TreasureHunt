@@ -258,10 +258,11 @@ function startGame(event)    //called with EventListener(click) in getHunt()
                     console.log("startGame(): OK");
                     let sessionid = JSONresponse2.session;
 
+                    /*
                     document.cookie = 'previousGame=true;' + ";" + "expires=" + expires + ";";
                     document.cookie = 'sessionid=' + sessionid + ";" + "expires=" + expires + ";";
                     document.cookie = 'playername=' + playername + ";" + "expires=" + expires + ";";
-                
+                    */
                     window.open("quiz.html?sessionid=" + sessionid, '_self', true);
                 }
                 else
