@@ -237,6 +237,7 @@ function startGame(event)    //called with EventListener(click) in getHunt()
     
     if(event == undefined)
     {
+        console.log("getCookie('sessionid");
         console.log(getCookie('sessionid'));
         let sessionid = getCookie('sessionid');
 
@@ -247,42 +248,42 @@ function startGame(event)    //called with EventListener(click) in getHunt()
     {
         console.log(event.target.id);
         TreasureHuntID = event.target.id; //move out from function into html
-    }
     
-    playername = getPlayername();
+        playername = getPlayername();
 
-    //Example url from CodeCyprus: https://codecyprus.org/th/api/start?player=Homer&app=simpsons-app&treasure-hunt-id=ag9nfmNvZGVjeXBydXNvcmdyGQsSDFRyZWFzdXJlSHVudBiAgICAvKGCCgw
-    let startGameURL = start_api + "?player=" + playername + "&app=lrm-quiz&treasure-hunt-id=" + TreasureHuntID;
-    fetch(startGameURL)
-        .then(response => response.json())
-        .then(JSONresponse2=>
-            {
-                console.log(startGameURL);
-                console.log(JSONresponse2);
-                if(JSONresponse2.status == "OK")
+        //Example url from CodeCyprus: https://codecyprus.org/th/api/start?player=Homer&app=simpsons-app&treasure-hunt-id=ag9nfmNvZGVjeXBydXNvcmdyGQsSDFRyZWFzdXJlSHVudBiAgICAvKGCCgw
+        let startGameURL = start_api + "?player=" + playername + "&app=lrm-quiz&treasure-hunt-id=" + TreasureHuntID;
+        fetch(startGameURL)
+            .then(response => response.json())
+            .then(JSONresponse2=>
                 {
-                    /*
-                    pseudo:
-                    - open new page
-                    - pass session id as html parameter
-                    */
-                    console.log("startGame(): OK");
-                    let sessionid = JSONresponse2.session;
+                    console.log(startGameURL);
+                    console.log(JSONresponse2);
+                    if(JSONresponse2.status == "OK")
+                    {
+                        /*
+                        pseudo:
+                        - open new page
+                        - pass session id as html parameter
+                        */
+                        console.log("startGame(): OK");
+                        let sessionid = JSONresponse2.session;
 
-                    setCookie(sessionid, playername);
+                        setCookie(sessionid, playername);
 
-                    window.open("quiz.html?sessionid=" + sessionid, '_self', true);
+                        window.open("quiz.html?sessionid=" + sessionid, '_self', true);
+                    }
+                    else
+                    {
+                        //error message
+                        console.log("startGame(): OK");
+                        window.alert(JSONresponse2.errorMessages);
+                    }
+
                 }
-                else
-                {
-                    //error message
-                    console.log("startGame(): OK");
-                    window.alert(JSONresponse2.errorMessages);
-                }
 
-            }
-
-        );
+            );
+    }
 }
 
 function getQuestion()
