@@ -312,9 +312,9 @@ function getQuestion()
                     questionBox = document.getElementById('questionBox');
                     answerBox = document.getElementById('answerBox');
                     skipBox = document.getElementById('skipBox');
-                    let locationHint;
-
+                    
                     //check for location
+                    let locationHint;
                     if (JSONresponse3.requiresLocation == true)
                     {
                         locationHint = document.createElement('p');
@@ -323,6 +323,13 @@ function getQuestion()
                         answerBox.appendChild(locationHint);
                         getLocation();
                     }
+
+                    //show number of questions
+                    let questionNumber = document.createElement('p');
+                    currentQuestion = JSONresponse3.currentQuestionIndex + 1;
+                    amountQuestion = JSONresponse3.numOfQuestions;
+                    questionNumber.innerText = "Question " + currentQuestion + " out of " + amountQuestion;
+                    questionBox.appendChild(questionNumber);
 
                     //show score
                     let scoreParagraph = document.createElement('p');
