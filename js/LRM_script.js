@@ -41,7 +41,7 @@ const leaderboard_api = url_api + "/leaderboard";
 let playername;
 var playerscore;
 //let sessionid;
-var leaderboardLimit = 25;
+let leaderboardLimit;
 
 //element variables
 let huntList;           //app.html#hunt-list
@@ -301,7 +301,9 @@ function getQuestion()
                 if (JSONresponse3.currentQuestionIndex == JSONresponse3.numOfQuestions)
                 {
                     let sessionid = urlParams.get('sessionid');
-                    window.open("leaderboard.html?sessionid=" + sessionid, '_self', true);
+                    leaderboardLimit = 25;
+                    console.log("leaderboardLimit: " + leaderboardLimit);
+                    window.open("leaderboard.html?sessionid=" + sessionid + "?leaderboardLimit=" + leaderboardLimit, '_self', true);// + "?leaderboardLimit=" + leaderboardLimit, '_self', true);
                 }
 
                 if(JSONresponse3.status == "OK")
@@ -669,8 +671,11 @@ function getLeaderboard()
     const urlParams = new URLSearchParams(window.location.search);
     
 
-    let getLeaderboardURL = leaderboard_api + "?session=" + urlParams.get('sessionid') + "&sorted&limit=" + leaderboardLimit;
+    leaderboardLimit = urlParams.get('leaderboardLimit');
 
+    let getLeaderboardURL = leaderboard_api + "?session=" + urlParams.get('sessionid') + "&sorted&limit=" + leaderboardLimit;
+    
+    console.log("urlParam: " + urlParams.get('leaderboardLimit'));
     fetch (getLeaderboardURL)
         .then(response => response.json())
         .then(JSONresponse8 =>
@@ -698,10 +703,12 @@ function getLeaderboard()
                         }
                         else
                         {
-                            playerRank = "You didn't make it into the top 25";
+                            playerRank = "You didn't make it onto the leaderboard";
                         }
                     }
                     console.log("playerRank: " + playerRank);
+
+
 
                     scoreParagraph.innerText = "Your score: " + playerscore + " Points.";
                     leaderboardScore.appendChild(scoreParagraph);
@@ -738,9 +745,10 @@ function getLeaderboard()
                     }
 
                     let leaderboardButton = document.getElementById("leaderboard-button");
-                    leaderboardButton.addEventListener("click", function(){
-                        leaderboardLimit = 50;
-                        window.location.reload(true);
+                    leaderboardButton.addEventListener("click", function()
+                    {
+                        leaderboardLimit = leaderboardLimit + 25;
+                        window.open("leaderboard.html?sessionid=" + urlParams.get('sessionid') + "&leaderboardLimit=" + leaderboardLimit, '_self', true);
                     });
 
                     let leaderboardRefresh = document.getElementById("leaderboard-refresh");
