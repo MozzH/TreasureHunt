@@ -52,17 +52,17 @@ let latitude;
 let longitude;
 
 
-//COOKIE FUNCTIONS  >>  W3Schools  https://www.w3schools.com/js/js_cookies.asp  <<
+//COOKIE FUNCTIONS
 function setCookie(sessionid, playername)
 {
     console.log("setCookie(" + sessionid + "," + playername + ")");
     let date = new Date();
     let expireCookie = date.getTime() + (24*60*60*1000) //expire in 24 hours
-    date.setTime(expireCookie);
+    let expire = date.setTime(expireCookie);
 
-    document.cookie = 'previousGame=true;' + ";" + "expires=" + date.toUTCString() + ";";
-    document.cookie = 'sessionid=' + sessionid + ";" + "expires=" + date.toUTCString() + ";";
-    document.cookie = 'playername=' + playername + ";" + "expires=" + date.toUTCString() + ";";
+    document.cookie = 'previousGame=true;' + ";" + "expires=" + expire + ";";
+    document.cookie = 'sessionid=' + sessionid + ";" + "expires=" + expire + ";";
+    document.cookie = 'playername=' + playername + ";" + "expires=" + expire + ";";
 
 }
 
