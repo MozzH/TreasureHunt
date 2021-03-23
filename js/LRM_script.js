@@ -678,14 +678,32 @@ function getLeaderboard()
                 if(JSONresponse8.status == "OK")
                 {
                     console.log("getLeaderboard(): OK");
-                    let leaderboardTH;
+                    let leaderboardTH = 25;
                     let leaderboardPosition = 0;
+                    let playerRank; //Rank of Player
 
                     let leaderboardScore = document.getElementById('leaderboard-score');
                     let scoreParagraph = document.createElement('p');
                     getScore(scoreParagraph);
-                    playerscore = getScore();
-                    scoreParagraph.innerText = "You scored " + playerscore + " Points.";
+
+                    //show playerrank
+                    let leaderboardEntry = JSONresponse8.leaderboard;
+                    for(let i = 0; i < leaderboardEntry.length; i++)
+                    {
+                        console.log("For loop");
+                        if(leaderboardEntry[i].player === playername)
+                        {
+                            playerRank = i;
+                            console.log("playerRank inside if: " + playerRank);
+                        }
+                        else
+                        {
+                            playerRank = "You didn't make it into the top 25";
+                        }
+                    }
+                    console.log("playerRank: " + playerRank);
+
+                    scoreParagraph.innerText = "Your score: " + playerscore + " Points.";
                     leaderboardScore.appendChild(scoreParagraph);
 
                     leaderboardTable = document.getElementById('leaderboard-table');
