@@ -57,12 +57,12 @@ function setCookie(sessionid, playername)
 {
     console.log("setCookie(" + sessionid + "," + playername + ")");
     let date = new Date();
-    date.setTime(date.getTime() + (expirationDays*24*60*60*1000));
-    let expires = "expires=" + date.toGMTString();
+    let expireCookie = date.getTime() + (24*60*60*1000) //expire in 24 hours
+    date.setTime(expireCookie);
 
-    document.cookie = 'previousGame=true;' + ";" + "expires=" + expires + ";";
-    document.cookie = 'sessionid=' + sessionid + ";" + "expires=" + expires + ";";
-    document.cookie = 'playername=' + playername + ";" + "expires=" + expires + ";";
+    document.cookie = 'previousGame=true;' + ";" + "expires=" + date.toUTCString() + ";";
+    document.cookie = 'sessionid=' + sessionid + ";" + "expires=" + date.toUTCString() + ";";
+    document.cookie = 'playername=' + playername + ";" + "expires=" + date.toUTCString() + ";";
 
 }
 
