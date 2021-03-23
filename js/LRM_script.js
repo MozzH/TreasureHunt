@@ -53,12 +53,16 @@ let longitude;
 
 
 //COOKIE FUNCTIONS  >>  W3Schools  https://www.w3schools.com/js/js_cookies.asp  <<
-function setCookie(cookieName, cookieValue, expirationDays)
+function setCookie(sessionid, playername)
 {
-  let date = new Date();
-  date.setTime(date.getTime() + (expirationDays*24*60*60*1000));
-  let expires = "expires=" + date.toGMTString();
-  document.cookie = cookieName + "=" + cookieValue + ";" + expires + ";path=/";
+    let date = new Date();
+    date.setTime(date.getTime() + (expirationDays*24*60*60*1000));
+    let expires = "expires=" + date.toGMTString();
+
+    document.cookie = 'previousGame=true;' + ";" + "expires=" + expires + ";";
+    document.cookie = 'sessionid=' + sessionid + ";" + "expires=" + expires + ";";
+    document.cookie = 'playername=' + playername + ";" + "expires=" + expires + ";";
+
 }
 
 
@@ -126,7 +130,7 @@ function scanCamera() {
 //SESSION FUNCTIONS
 function startSession()
 {
-    
+
 }
 
 function endSession()
@@ -138,62 +142,71 @@ function endSession()
 function getHunt()      //get List of Treasure Hunts
 {
     console.log("getHunt called");
-    fetch(list_api)
-        .then(response => response.json())  //https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
-        .then(JSONresponse =>
-            {
-                console.log(JSONresponse);
-                if(JSONresponse.status == "OK")
+    if (getCookie('previousGame') == 'true' && confirm('Do you want to coninue the previous saved game?'))
+    {
+        sessionid = getCookie('sessionid');
+        startGame();
+    }
+    else
+    {
+
+        fetch(list_api)
+            .then(response => response.json())  //https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+            .then(JSONresponse =>
                 {
-                    console.log("getHunt(): OK");
-                    let treasureHunt; //
-
-                    huntList = document.getElementById('hunt-list');
-
-                    for (treasureHunt of JSONresponse.treasureHunts) //for each
+                    console.log(JSONresponse);
+                    if(JSONresponse.status == "OK")
                     {
-                        //add li elements to ul
-                        //give id to every li (use uuid)
-                        let THelement = document.createElement('li');
-                        //THelement.id = treasureHunt.uuid;
-                        THelement.className="ul-remove";
-                        THelement.className="li-TH";
-                       
+                        console.log("getHunt(): OK");
+                        let treasureHunt; //
 
-                        let THelementName = document.createElement('h3');
-                        THelementName.innerText = treasureHunt.name;
+                        huntList = document.getElementById('hunt-list');
 
-                        //details about hunt
-                        let THelementDetails = document.createElement('p');
-                        let treasureHuntStartDate = new Date (treasureHunt.startsOn);
-                        let treasureHuntEndDate = new Date (treasureHunt.endsOn);
-                        let tresureHuntDuration = (treasureHunt.maxDuration / 1000 / 60);
+                        for (treasureHunt of JSONresponse.treasureHunts) //for each
+                        {
+                            //add li elements to ul
+                            //give id to every li (use uuid)
+                            let THelement = document.createElement('li');
+                            //THelement.id = treasureHunt.uuid;
+                            THelement.className="ul-remove";
+                            THelement.className="li-TH";
+                        
 
-                        THelementDetails.innerHTML = "<b>Description:</b> " + treasureHunt.description + '<br>' 
-                                                    + "<b>Starts on:</b> " + treasureHuntStartDate.toLocaleDateString('de-DE') + '<br>'
-                                                    + "<b>Ends on:</b> " + treasureHuntEndDate.toLocaleDateString('de-DE') + '<br>'
-                                                    + "<b>Duration:</b> around " + tresureHuntDuration + " minutes";
+                            let THelementName = document.createElement('h3');
+                            THelementName.innerText = treasureHunt.name;
 
-                        let THelementButton = document.createElement('button');
-                        THelementButton.id = treasureHunt.uuid;
-                        THelementButton.innerText = "Play";
-                        THelementButton.addEventListener("click", startGame);
+                            //details about hunt
+                            let THelementDetails = document.createElement('p');
+                            let treasureHuntStartDate = new Date (treasureHunt.startsOn);
+                            let treasureHuntEndDate = new Date (treasureHunt.endsOn);
+                            let tresureHuntDuration = (treasureHunt.maxDuration / 1000 / 60);
 
-                        THelement.appendChild(THelementName);
-                        THelement.appendChild(THelementDetails);
-                        THelement.appendChild(THelementButton);
-                        huntList.appendChild(THelement);    //puts li inside of ul; instead of huntList.innerHTML += "<li> </li>"
+                            THelementDetails.innerHTML = "<b>Description:</b> " + treasureHunt.description + '<br>' 
+                                                        + "<b>Starts on:</b> " + treasureHuntStartDate.toLocaleDateString('de-DE') + '<br>'
+                                                        + "<b>Ends on:</b> " + treasureHuntEndDate.toLocaleDateString('de-DE') + '<br>'
+                                                        + "<b>Duration:</b> around " + tresureHuntDuration + " minutes";
+
+                            let THelementButton = document.createElement('button');
+                            THelementButton.id = treasureHunt.uuid;
+                            THelementButton.innerText = "Play";
+                            THelementButton.addEventListener("click", startGame);
+
+                            THelement.appendChild(THelementName);
+                            THelement.appendChild(THelementDetails);
+                            THelement.appendChild(THelementButton);
+                            huntList.appendChild(THelement);    //puts li inside of ul; instead of huntList.innerHTML += "<li> </li>"
+                        }
                     }
+                    else
+                    {
+                        //error message
+                        console.log("getHunt(): ERROR");
+                        window.alert("There was an error. Please refresh or try again later.");
+                    }
+                    
                 }
-                else
-                {
-                    //error message
-                    console.log("getHunt(): ERROR");
-                    window.alert("There was an error. Please refresh or try again later.");
-                }
-                
-            }
-        );
+            );
+    }
 }
 
 function getPlayername()
@@ -219,9 +232,12 @@ function startGame(event)    //called with EventListener(click) in getHunt()
     //start session + remember session id
     console.log(event.target.id);
     let TreasureHuntID = event.target.id; //move out from function into html
+    
+    
+    playername = getPlayername();
 
     //Example url from CodeCyprus: https://codecyprus.org/th/api/start?player=Homer&app=simpsons-app&treasure-hunt-id=ag9nfmNvZGVjeXBydXNvcmdyGQsSDFRyZWFzdXJlSHVudBiAgICAvKGCCgw
-    let startGameURL = start_api + "?player=" + getPlayername() + "&app=lrm-quiz&treasure-hunt-id=" + TreasureHuntID;
+    let startGameURL = start_api + "?player=" + playername + "&app=lrm-quiz&treasure-hunt-id=" + TreasureHuntID;
     fetch(startGameURL)
         .then(response => response.json())
         .then(JSONresponse2=>
@@ -237,6 +253,8 @@ function startGame(event)    //called with EventListener(click) in getHunt()
                     */
                     console.log("startGame(): OK");
                     let sessionid = JSONresponse2.session;
+
+                    setCookie(playername, sessionid);
 
                     window.open("quiz.html?sessionid=" + sessionid, '_self', true);
                 }
