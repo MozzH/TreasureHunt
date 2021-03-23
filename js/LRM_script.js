@@ -328,7 +328,6 @@ function getQuestion()
                     let scoreParagraph = document.createElement('p');
 
                     getScore(scoreParagraph);
-                    playerscore = getScore();
                     questionBox.appendChild(scoreParagraph);
                     
                     //create question
