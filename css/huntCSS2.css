@@ -229,6 +229,11 @@ button
     padding-top: 5px;
 }
 
+.team-list
+{
+    margin-top: 0;
+}
+
 .top-row-left
 {
     border-top-left-radius: 7px;
