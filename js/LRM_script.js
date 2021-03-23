@@ -688,6 +688,7 @@ function getLeaderboard()
 
                     let leaderboardScore = document.getElementById('leaderboard-score');
                     let scoreParagraph = document.createElement('p');
+                    let rankParagraph = document.createElement('p');
                     getScore(scoreParagraph);
 
                     playername = getCookie("playername");
@@ -700,19 +701,20 @@ function getLeaderboard()
                         console.log("For loop");
                         if(leaderboardEntry[i].player === playername)
                         {
-                            playerrank = i;
+                            playerrank = "You are on place " + i;
                             console.log("playerRank inside if: " + playerrank);
                         }
                         else
                         {
-                            playerrank = "You didn't make it onto the leaderboard";
+                            playerrank = "There was an error showing your place on the leaderboard";
                         }
                     }
                     console.log("playerRank: " + playerrank);
 
+                    rankParagraph.innerText = "Hi, " + playername + ". " + playerrank;
+                    leaderboardScore.appendChild(rankParagraph);
 
-
-                    scoreParagraph.innerText = "Hi, " + playername + ", you are on place" + playerrank + ". Your score is " + playerscore + " Points.";
+                    scoreParagraph.innerText = "Your score is " + playerscore + " Points.";
                     leaderboardScore.appendChild(scoreParagraph);
 
                     leaderboardTable = document.getElementById('leaderboard-table');
