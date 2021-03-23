@@ -254,7 +254,7 @@ function startGame(event)    //called with EventListener(click) in getHunt()
                     console.log("startGame(): OK");
                     let sessionid = JSONresponse2.session;
 
-                    setCookie(playername, sessionid);
+                    setCookie(sessionid, playername);
 
                     window.open("quiz.html?sessionid=" + sessionid, '_self', true);
                 }
