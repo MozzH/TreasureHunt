@@ -4,7 +4,7 @@
 #  Project L.R.M.
 a Treasure Hunt application for CO1111 at UCLan Cyprus!
 <br>
-available at: mozzh.github.io/TreasureHunt
+available at: https://mozzh.github.io/TreasureHunt
 
 ## Team Members
 
